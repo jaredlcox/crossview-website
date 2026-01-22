@@ -35,7 +35,6 @@ export default function BeliefsPage() {
         <div className="max-w-3xl mx-auto">
           <h2 className="font-serif text-2xl md:text-3xl font-bold text-[#1E3D42] mb-4">Our Beliefs</h2>
           <div className="h-px bg-slate-200 mb-8"></div>
-
           <div className="space-y-8">
             {beliefs.map((belief) => (
               <div key={belief.id} className="space-y-3">

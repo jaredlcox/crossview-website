@@ -1,5 +1,4 @@
 import Link from "next/link"
-import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { FeaturedEventCard, UpcomingEventsList } from "@/components/events-list"
 import { ServiceTimesGrid } from "@/components/service-times-grid"
@@ -11,36 +10,22 @@ export default function HomePage() {
   return (
     <>
       {/* Hero Section - BridgePoint Style */}
-      <section className="relative py-20 md:py-32 min-h-[500px] md:min-h-[600px] flex items-center">
-        {/* Background Image */}
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="/church-entrance.jpg"
-            alt="Crossview Church entrance"
-            fill
-            className="object-cover"
-            priority
-            sizes="100vw"
-          />
-          {/* Overlay for text readability */}
-          <div className="absolute inset-0 bg-white/85"></div>
-        </div>
+      <section className="relative py-20 md:py-32 min-h-[500px] md:min-h-[600px] flex items-center bg-gradient-to-br from-[#378AA4] via-[#2a6b7f] to-[#1E3D42]">
+        {/* Subtle cross pattern overlay */}
+        <div className="absolute inset-0 opacity-[0.08]" style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23ffffff' stroke-width='1.5' stroke-opacity='0.4'%3E%3Cpath d='M40 20 L40 60 M20 40 L60 40'/%3E%3C/g%3E%3C/svg%3E")`,
+        }}></div>
         
         {/* Content */}
         <div className="container mx-auto px-4 md:px-6 lg:px-8 relative z-10">
           <div className="max-w-3xl mx-auto text-center space-y-6">
             <p className="text-sm font-medium text-[#F1802C] uppercase tracking-wide">Welcome to</p>
-            <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-[#1E3D42] tracking-tight">
+            <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight">
               Crossview Church
             </h1>
-            <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto">
               Christ… Connection… Community
             </p>
-            <div className="flex flex-wrap items-center justify-center gap-4 pt-4">
-              <Button asChild className="h-12 px-8 font-medium bg-[#F1802C] hover:opacity-90 text-white">
-                <Link href="/location">Plan Your Visit</Link>
-              </Button>
-            </div>
           </div>
         </div>
       </section>
