@@ -6,6 +6,8 @@ export interface Ministry {
   details: string
   schedule?: string
   contact?: string
+  imageFit?: "cover" | "contain" | "fill" | "none" | "scale-down"
+  imageBackground?: string
 }
 
 export const ministries: Ministry[] = [
@@ -22,7 +24,7 @@ export const ministries: Ministry[] = [
     id: "crossview-kids",
     title: "Crossview Kids",
     description: "Partnering with parents to help kids grow closer to God.",
-    image: "/children-church-sunday-school.jpg",
+    image: "/kids_ministry.jpg",
     details:
       "Our goal is to partner with parents to move kids from where they are to where God wants them to be. We provide dedicated, safe, age-appropriate environments for preschool through third grade. Nursery care is provided for our Sunday morning service at 10:30 a.m.",
   },
@@ -47,16 +49,16 @@ export const ministries: Ministry[] = [
     id: "griefshare",
     title: "GriefShare: Navigating Through Loss & Grief",
     description: "Finding hope and encouragement through life's most difficult seasons.",
-    image: "/people-praying-together-support.jpg",
+    image: "/griefshare.jpg",
     details:
       "A 13-week program to help people move through grief and find encouragement and hope. Details will be posted soon. For more information, call Pastor Matt at (419) 280-7495.",
     contact: "(419) 280-7495",
   },
   {
     id: "mens-bible-study",
-    title: "Men's Bible Study",
+    title: "Men's Breakfast & Bible Study",
     description: "Fellowship and Scripture study for men.",
-    image: "/small-group-bible-study-home.jpg",
+    image: "/mens-breakfast-and-bible-study.jpg",
     details:
       "Join us Wednesday mornings from 6:30–7:30 a.m. at Panera on Central Avenue for fellowship and Bible study.",
     schedule: "Wednesdays, 6:30–7:30 a.m.",
@@ -66,7 +68,7 @@ export const ministries: Ministry[] = [
     id: "ladies-brunch",
     title: "Ladies Brunch & Bible",
     description: "Monthly gathering for women to connect over brunch and Scripture.",
-    image: "/church-community-fellowship-gathering.jpg",
+    image: "/brunch-bible.png",
     details:
       "Once a month, women gather from 11:00 a.m.–12:30 p.m. for brunch, fellowship, and Bible study. Nursery and child care provided.",
     schedule: "Monthly, 11:00 a.m.–12:30 p.m.",

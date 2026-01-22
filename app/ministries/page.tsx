@@ -67,7 +67,7 @@ export default function MinistriesPage() {
                         src={ministry.image}
                         alt={ministry.title}
                         fill
-                        className="object-cover transition-transform duration-300 group-hover:scale-105"
+                        className="transition-transform duration-300 group-hover:scale-105"
                         sizes="(max-width: 768px) 100vw, 50vw"
                       />
                       {/* Dark Overlay - Stronger on mobile for readability */}
