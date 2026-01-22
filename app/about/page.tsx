@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import Image from "next/image"
 import { ContactBlock } from "@/components/contact-block"
+import { CheckCircle2 } from "lucide-react"
 
 export const metadata: Metadata = {
   title: "About Us",
@@ -58,10 +59,10 @@ export default function AboutPage() {
   return (
     <>
       {/* Page Title */}
-      <section className="py-16 md:py-20 bg-white border-b border-slate-200/60">
+      <section className="py-12 md:py-16 bg-white border-b border-slate-200/60">
         <div className="container mx-auto px-4 md:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto">
-            <h1 className="font-serif text-3xl md:text-4xl font-bold text-[#1E3D42] mb-4">ABOUT US</h1>
+            <h1 className="font-serif text-3xl md:text-4xl font-bold text-[#1E3D42] mb-3">ABOUT US</h1>
             <p className="text-base text-muted-foreground leading-7">
               We're a community of Christ-followers seeking to know God, grow in faith, and make a difference in our world.
             </p>
@@ -70,11 +71,11 @@ export default function AboutPage() {
       </section>
 
       {/* Who We Are */}
-      <section className="py-16 md:py-20 bg-white">
+      <section className="py-10 md:py-12 bg-white">
         <div className="container mx-auto px-4 md:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto">
-            <h2 className="font-serif text-2xl font-bold text-[#1E3D42] mb-4">Who We Are</h2>
-            <div className="space-y-4 text-base text-muted-foreground leading-7">
+            <h2 className="font-serif text-2xl font-bold text-[#1E3D42] mb-3">Who We Are</h2>
+            <div className="text-base text-muted-foreground leading-7">
               <p>
                 We invite you to experience God's love, grace, and truth in a caring church family. Crossview is an
                 independent, Bible-based church where God's Word is taught clearly and Jesus Christ is at the center of
@@ -86,10 +87,10 @@ export default function AboutPage() {
       </section>
 
       {/* Our Vision */}
-      <section id="vision" className="py-16 md:py-20 bg-white border-t border-slate-200/60">
+      <section id="vision" className="py-10 md:py-12 bg-white border-t border-slate-200/60">
         <div className="container mx-auto px-4 md:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto">
-            <h2 className="font-serif text-2xl font-bold text-[#1E3D42] mb-4">Our Vision</h2>
+            <h2 className="font-serif text-2xl font-bold text-[#1E3D42] mb-3">Our Vision</h2>
             <p className="text-base text-muted-foreground leading-7">
               Our name reflects our vision, which is to keep the cross of Christ at the center of our lives, our
               church, and our mission to the world.
@@ -99,16 +100,14 @@ export default function AboutPage() {
       </section>
 
       {/* Our Goal */}
-      <section className="py-16 md:py-20 bg-white border-t border-slate-200/60">
+      <section className="py-10 md:py-12 bg-white border-t border-slate-200/60">
         <div className="container mx-auto px-4 md:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto">
-            <h2 className="font-serif text-2xl font-bold text-[#1E3D42] mb-6">Our Goal</h2>
-            <ul className="space-y-4">
+            <h2 className="font-serif text-2xl font-bold text-[#1E3D42] mb-4">Our Goal</h2>
+            <ul className="space-y-3">
               {goals.map((goal) => (
                 <li key={goal.title} className="flex items-start gap-3">
-                  <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#F1802C] text-white text-xs font-bold mt-0.5">
-                    {goal.title.charAt(0)}
-                  </span>
+                  <CheckCircle2 className="h-5 w-5 shrink-0 text-[#378AA4] mt-0.5" />
                   <div>
                     <h3 className="font-semibold text-[#1E3D42] mb-1">{goal.title}</h3>
                     <p className="text-sm text-muted-foreground leading-relaxed">{goal.description}</p>
@@ -121,14 +120,14 @@ export default function AboutPage() {
       </section>
 
       {/* Core Values */}
-      <section className="py-16 md:py-20 bg-white border-t border-slate-200/60">
+      <section className="py-10 md:py-12 bg-white border-t border-slate-200/60">
         <div className="container mx-auto px-4 md:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto">
-            <h2 className="font-serif text-2xl font-bold text-[#1E3D42] mb-6">Our Core Values</h2>
-            <div className="space-y-6">
+            <h2 className="font-serif text-2xl font-bold text-[#1E3D42] mb-4">Our Core Values</h2>
+            <div className="space-y-4">
               {coreValues.map((value) => (
                 <div key={value.title}>
-                  <h3 className="font-serif text-lg font-semibold text-[#1E3D42] mb-2">{value.title}</h3>
+                  <h3 className="font-serif text-lg font-semibold text-[#1E3D42] mb-1">{value.title}</h3>
                   <p className="text-sm text-muted-foreground leading-relaxed">{value.description}</p>
                 </div>
               ))}
@@ -138,12 +137,12 @@ export default function AboutPage() {
       </section>
 
       {/* Leadership */}
-      <section id="leadership" className="py-16 md:py-20 bg-white border-t border-slate-200/60">
+      <section id="leadership" className="py-10 md:py-12 bg-white border-t border-slate-200/60">
         <div className="container mx-auto px-4 md:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto">
-            <h2 className="font-serif text-2xl font-bold text-[#1E3D42] mb-6">Leadership</h2>
-            <div className="space-y-6">
-              <div className="relative aspect-[4/3] rounded-lg overflow-hidden bg-slate-100 mb-6">
+            <h2 className="font-serif text-2xl font-bold text-[#1E3D42] mb-4">Leadership</h2>
+            <div className="space-y-4">
+              <div className="relative aspect-[4/3] rounded-lg overflow-hidden bg-slate-100 mb-4">
                 <Image
                   src="/matt-and-vickie.png"
                   alt="Matt and Vickie Bernsdorf"
@@ -153,8 +152,8 @@ export default function AboutPage() {
               </div>
               <div>
                 <h3 className="font-serif text-xl font-semibold text-[#1E3D42] mb-2">Matt and Vickie Bernsdorf</h3>
-                <p className="text-sm text-[#378AA4] font-medium mb-4">Pastoral Leadership</p>
-                <div className="space-y-4 text-sm text-muted-foreground leading-7">
+                <p className="text-sm text-[#378AA4] font-medium mb-3">Pastoral Leadership</p>
+                <div className="space-y-3 text-sm text-muted-foreground leading-7">
                   <p>
                     In 2023, Matt and Vickie opened their home for a small Bible study that grew into what is now
                     Crossview Church. In 2025, the church moved into its current storefront location in Sylvania.

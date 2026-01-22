@@ -5,6 +5,13 @@ import { siteConfig, getFullAddress } from "@/lib/site"
 import { navigation } from "@/lib/nav"
 
 export function SiteFooter() {
+  // Split navigation into chunks of 4 for column layout
+  const chunkSize = 4
+  const linkColumns = []
+  for (let i = 0; i < navigation.length; i += chunkSize) {
+    linkColumns.push(navigation.slice(i, i + chunkSize))
+  }
+
   return (
     <footer className="bg-[#1E3D42] text-white" role="contentinfo">
       <div className="container mx-auto px-4 py-12">
@@ -73,15 +80,19 @@ export function SiteFooter() {
           {/* Quick Links */}
           <div className="space-y-4">
             <h3 className="font-serif text-lg font-semibold text-[#F1802C]">Quick Links</h3>
-            <ul className="space-y-2">
-              {navigation.map((item) => (
-                <li key={item.href}>
-                  <Link href={item.href} className="text-sm text-white/80 hover:text-[#378AA4] transition-colors">
-                    {item.label}
-                  </Link>
-                </li>
+            <div className="flex gap-6">
+              {linkColumns.map((column, columnIndex) => (
+                <ul key={columnIndex} className="space-y-2 flex-1">
+                  {column.map((item) => (
+                    <li key={item.href}>
+                      <Link href={item.href} className="text-sm text-white/80 hover:text-[#378AA4] transition-colors">
+                        {item.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
               ))}
-            </ul>
+            </div>
           </div>
         </div>
 
