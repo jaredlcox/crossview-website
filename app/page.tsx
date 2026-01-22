@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { FeaturedEventCard, UpcomingEventsList } from "@/components/events-list"
 import { ServiceTimesGrid } from "@/components/service-times-grid"
@@ -31,20 +32,47 @@ export default function HomePage() {
       </section>
 
       {/* Ministries Section */}
-      <section className="py-16 md:py-20 bg-white">
+      <section className="py-16 md:py-20 lg:py-24 bg-white">
         <div className="container mx-auto px-4 md:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto text-center space-y-6">
-            <h2 className="font-serif text-2xl md:text-3xl font-bold text-[#1E3D42]">Ministries</h2>
-            <p className="text-base text-muted-foreground leading-7 max-w-2xl mx-auto">
-              God has uniquely gifted each of us for service. Whether you're looking for a place to grow, connect, or serve, there's a ministry for you.
-            </p>
-            <Button
-              asChild
-              variant="outline"
-              className="border-[#378AA4] text-[#378AA4] hover:bg-[#378AA4] hover:text-white"
-            >
-              <Link href="/ministries">Learn More</Link>
-            </Button>
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+            {/* Left Column - Text Content */}
+            <div className="space-y-6">
+              <div>
+                <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-[#1E3D42] mb-4">
+                  Ministries
+                </h2>
+                <div className="h-1 w-16 bg-[#F1802C] mb-6"></div>
+              </div>
+              <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-xl">
+                God has uniquely gifted each of us for service. Whether you're looking for a place to grow, connect, or serve, there's a ministry for you.
+              </p>
+              <div className="pt-2">
+                <Button
+                  asChild
+                  variant="outline"
+                  className="border-2 border-[#378AA4] text-[#378AA4] hover:bg-[#378AA4] hover:text-white transition-all duration-200 h-11 px-6 font-medium"
+                >
+                  <Link href="/ministries">Learn More</Link>
+                </Button>
+              </div>
+            </div>
+
+            {/* Right Column - Image Card */}
+            <div className="relative group">
+              <div className="relative aspect-[4/3] rounded-lg overflow-hidden shadow-lg">
+                <Image
+                  src="/church-gathering.jpg"
+                  alt="Church community gathering"
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+                {/* Subtle gradient overlay for depth */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent"></div>
+              </div>
+              {/* Decorative accent */}
+              <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-[#F1802C]/10 rounded-full blur-2xl -z-10"></div>
+            </div>
           </div>
         </div>
       </section>
