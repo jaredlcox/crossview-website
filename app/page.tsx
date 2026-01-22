@@ -1,128 +1,144 @@
 import Link from "next/link"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import { ImageCarousel } from "@/components/image-carousel"
-import { InfoStrip } from "@/components/info-strip"
-import { SectionHeading } from "@/components/section-heading"
 import { FeaturedEventCard, UpcomingEventsList } from "@/components/events-list"
-import { MediaTeaser } from "@/components/media-teaser"
-
-const heroSlides = [
-  {
-    id: "1",
-    title: "Worship & Teaching",
-    description: "Experience biblical teaching and heartfelt worship every Sunday.",
-    image: "/church-congregation-worship.png",
-  },
-  {
-    id: "2",
-    title: "Community & Connection",
-    description: "Find your place in a caring church family.",
-    image: "/church-community-fellowship-gathering.jpg",
-  },
-  {
-    id: "3",
-    title: "Kids & Nursery",
-    description: "Safe, age-appropriate programs for children of all ages.",
-    image: "/church-children-ministry-kids.jpg",
-  },
-  {
-    id: "4",
-    title: "Serving & Hospitality",
-    description: "Discover the joy of using your gifts to serve others.",
-    image: "/church-volunteers-serving-community.jpg",
-  },
-]
+import { ServiceTimesGrid } from "@/components/service-times-grid"
+import { ContactBlock } from "@/components/contact-block"
+import { getFullAddress } from "@/lib/site"
+import { MapPin } from "lucide-react"
 
 export default function HomePage() {
   return (
     <>
-      {/* Hero Section */}
-      <section className="relative bg-background">
-        <div className="container mx-auto px-4 md:px-6 lg:px-8 py-16 md:py-24">
-          <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-center">
-            <div className="space-y-6">
-              <h1 className="font-serif text-3xl md:text-5xl font-bold text-[#1E3D42] tracking-tight text-balance leading-tight">
-                Christ… Connection… Community
-              </h1>
-              <p className="text-base md:text-lg text-muted-foreground leading-7 text-pretty max-w-prose">
-                We invite you to experience God's love, grace, and truth in a caring church family. Crossview is an
-                independent, Bible-based church where God's Word is taught clearly and Jesus Christ is at the center of
-                all we do. If you're seeking to grow closer to God and understand the Bible, we would love to help.
+      {/* Hero Section - BridgePoint Style */}
+      <section className="relative py-20 md:py-32 min-h-[500px] md:min-h-[600px] flex items-center">
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/church-entrance.jpg"
+            alt="Crossview Church entrance"
+            fill
+            className="object-cover"
+            priority
+            sizes="100vw"
+          />
+          {/* Overlay for text readability */}
+          <div className="absolute inset-0 bg-white/85"></div>
+        </div>
+        
+        {/* Content */}
+        <div className="container mx-auto px-4 md:px-6 lg:px-8 relative z-10">
+          <div className="max-w-3xl mx-auto text-center space-y-6">
+            <p className="text-sm font-medium text-[#F1802C] uppercase tracking-wide">Welcome to</p>
+            <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-[#1E3D42] tracking-tight">
+              Crossview Church
+            </h1>
+            <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
+              Christ… Connection… Community
+            </p>
+            <div className="flex flex-wrap items-center justify-center gap-4 pt-4">
+              <Button asChild className="h-12 px-8 font-medium bg-[#F1802C] hover:opacity-90 text-white">
+                <Link href="/location">Plan Your Visit</Link>
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Ministries Section */}
+      <section className="py-16 md:py-20 bg-white">
+        <div className="container mx-auto px-4 md:px-6 lg:px-8">
+          <div className="max-w-3xl mx-auto text-center space-y-6">
+            <h2 className="font-serif text-2xl md:text-3xl font-bold text-[#1E3D42]">Ministries</h2>
+            <p className="text-base text-muted-foreground leading-7 max-w-2xl mx-auto">
+              God has uniquely gifted each of us for service. Whether you're looking for a place to grow, connect, or serve, there's a ministry for you.
+            </p>
+            <Button
+              asChild
+              variant="outline"
+              className="border-[#378AA4] text-[#378AA4] hover:bg-[#378AA4] hover:text-white"
+            >
+              <Link href="/ministries">Learn More</Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Stay Connected Section */}
+      <section className="py-16 md:py-20 bg-slate-50/50">
+        <div className="container mx-auto px-4 md:px-6 lg:px-8">
+          <div className="max-w-2xl mx-auto">
+            <div className="p-8 border border-slate-200 rounded-lg bg-white">
+              <h2 className="font-serif text-xl font-semibold text-[#1E3D42] mb-3">Stay Connected</h2>
+              <p className="text-base text-muted-foreground leading-7 mb-6">
+                Keep up with announcements, events, and ways to get involved in our church community.
               </p>
-              <div className="flex flex-wrap items-center gap-6 pt-2">
-                <Button asChild className="h-11 px-6 rounded-xl font-medium bg-[#F1802C] hover:opacity-90 text-white">
-                  <Link href="/location">Plan Your Visit</Link>
-                </Button>
-                <Link
-                  href="#sermons"
-                  className="text-sm font-medium text-[#378AA4] hover:text-[#1E3D42] transition-colors"
-                >
-                  Watch a Message
-                </Link>
+              <Button
+                asChild
+                variant="outline"
+                className="border-[#378AA4] text-[#378AA4] hover:bg-[#378AA4] hover:text-white"
+              >
+                <Link href="/contact">Contact Us</Link>
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Join Us - Service Times */}
+      <section className="py-16 md:py-20 bg-white">
+        <div className="container mx-auto px-4 md:px-6 lg:px-8">
+          <div className="max-w-3xl mx-auto">
+            <h2 className="font-serif text-2xl md:text-3xl font-bold text-[#1E3D42] mb-8 text-center">Join Us!</h2>
+            <ServiceTimesGrid />
+          </div>
+        </div>
+      </section>
+
+      {/* What's Happening */}
+      <section className="py-16 md:py-20 bg-slate-50/50">
+        <div className="container mx-auto px-4 md:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="font-serif text-2xl md:text-3xl font-bold text-[#1E3D42] mb-8 text-center">What's Happening</h2>
+            <div className="grid gap-8 lg:grid-cols-2">
+              <FeaturedEventCard />
+              <div>
+                <h3 className="font-serif text-lg font-semibold text-[#1E3D42] mb-6">Upcoming Events</h3>
+                <UpcomingEventsList limit={3} />
               </div>
             </div>
-            <ImageCarousel slides={heroSlides} />
           </div>
         </div>
       </section>
 
-      <InfoStrip />
-
-      {/* What's Happening Section */}
-      <section className="py-20 md:py-28">
+      {/* Location Block */}
+      <section className="py-16 md:py-20 bg-slate-50/50">
         <div className="container mx-auto px-4 md:px-6 lg:px-8">
-          <SectionHeading title="What's Happening" subtitle="Stay connected with the life of our church" />
-          <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
-            <FeaturedEventCard />
-            <div>
-              <h3 className="font-semibold text-xl text-[#1E3D42] mb-6">Upcoming Events</h3>
-              <UpcomingEventsList limit={3} />
+          <div className="max-w-3xl mx-auto">
+            <h2 className="font-serif text-2xl md:text-3xl font-bold text-[#1E3D42] mb-6 text-center">Location</h2>
+            <p className="text-base text-muted-foreground text-center mb-8 max-w-2xl mx-auto">
+              We're located in Sylvania, Ohio. Join us for worship and Bible study.
+            </p>
+            <div className="relative aspect-video rounded-lg overflow-hidden bg-slate-100 border border-slate-200 mb-6">
+              <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-8">
+                <MapPin className="h-10 w-10 text-[#378AA4] mb-4" />
+                <p className="text-base text-muted-foreground mb-4">{getFullAddress()}</p>
+                <a
+                  href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(getFullAddress())}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm font-medium text-[#378AA4] hover:text-[#1E3D42] transition-colors"
+                >
+                  View map →
+                </a>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Message Teaser Section */}
-      <section id="sermons" className="py-20 md:py-28 bg-slate-50/50 scroll-mt-20">
-        <div className="container mx-auto px-4 md:px-6 lg:px-8">
-          <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-center">
-            <div>
-              <SectionHeading title="Featured Message" subtitle="A short excerpt from recent preaching." />
-              <p className="text-base md:text-lg text-muted-foreground leading-7 mb-6 max-w-prose">
-                Our sermons are designed to help you grow in your faith and apply biblical truth to everyday life.
-              </p>
-              <Link
-                href="/contact"
-                className="text-sm font-medium text-[#378AA4] hover:text-[#1E3D42] transition-colors"
-              >
-                View Sermons →
-              </Link>
-            </div>
-            <MediaTeaser
-              title="Watch Our Latest Message"
-              description="Catch up on recent sermons and teachings."
-              href="/contact"
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* Welcome Section */}
-      <section className="py-20 md:py-28">
-        <div className="container mx-auto px-4 md:px-6 lg:px-8 text-center max-w-2xl">
-          <SectionHeading
-            title="New Here?"
-            subtitle="We'd love to meet you and help you find your place at Crossview."
-            centered
-          />
-          <p className="text-base md:text-lg text-muted-foreground leading-7 mb-8">
-            Whether you're exploring faith for the first time or looking for a new church home, you're welcome here.
-          </p>
-          <Button asChild className="h-11 px-6 rounded-xl font-medium bg-[#F1802C] hover:opacity-90 text-white">
-            <Link href="/location">Plan Your Visit</Link>
-          </Button>
-        </div>
-      </section>
+      {/* Contact Block */}
+      <ContactBlock />
     </>
   )
 }

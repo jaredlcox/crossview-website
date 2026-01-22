@@ -1,7 +1,4 @@
 import type { Metadata } from "next"
-import { PageHero } from "@/components/page-hero"
-import { SectionHeading } from "@/components/section-heading"
-import { Card, CardContent } from "@/components/ui/card"
 import { ContactForm } from "@/components/contact-form"
 import { PrayerRequestForm } from "@/components/prayer-request-form"
 import { siteConfig } from "@/lib/site"
@@ -16,39 +13,44 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <>
-      <PageHero
-        title="Contact Us"
-        intro="We'd love to hear from you. Whether you have a question, need prayer, or just want to say hello, we're here for you."
-      />
-
-      <section className="py-20 md:py-28">
+      {/* Page Title */}
+      <section className="py-16 md:py-20 bg-white border-b border-slate-200/60">
         <div className="container mx-auto px-4 md:px-6 lg:px-8">
-          <div className="grid gap-12 lg:grid-cols-3 lg:gap-16">
+          <div className="max-w-3xl mx-auto">
+            <h1 className="font-serif text-3xl md:text-4xl font-bold text-[#1E3D42] mb-4">CONTACT</h1>
+            <p className="text-base text-muted-foreground leading-7">
+              We'd love to hear from you. Whether you have a question, need prayer, or just want to say hello, we're here for you.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 md:py-20 bg-white">
+        <div className="container mx-auto px-4 md:px-6 lg:px-8">
+          <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 max-w-5xl mx-auto">
             {/* Contact Form */}
-            <div className="lg:col-span-2">
-              <SectionHeading title="Send Us a Message" subtitle="Fill out the form below and we'll get back to you" />
-              <Card className="border-slate-200/60 shadow-sm">
-                <CardContent className="p-6 md:p-8">
-                  <ContactForm />
-                </CardContent>
-              </Card>
+            <div>
+              <h2 className="font-serif text-xl font-semibold text-[#1E3D42] mb-6">Send Us a Message</h2>
+              <div className="p-6 border border-slate-200 rounded-lg bg-white">
+                <ContactForm />
+              </div>
             </div>
 
-            {/* Contact Info Sidebar */}
+            {/* Contact Info & Prayer Request */}
             <div className="space-y-8">
               {/* Quick Contact */}
               <div>
-                <h3 className="font-serif text-lg font-semibold text-[#1E3D42] mb-5">Quick Contact</h3>
+                <h3 className="font-serif text-lg font-semibold text-[#1E3D42] mb-5">Contact Information</h3>
                 <div className="space-y-4">
                   <div className="flex items-start gap-3">
-                    <Phone className="h-5 w-5 text-[#F1802C] shrink-0 mt-0.5" />
+                    <Phone className="h-5 w-5 text-[#378AA4] shrink-0 mt-0.5" />
                     <div>
                       <p className="font-medium text-[#1E3D42] text-sm">Phone</p>
                       <a
                         href="tel:4192807495"
                         className="text-sm text-muted-foreground hover:text-[#378AA4] transition-colors"
                       >
-                        (419) 280-7495
+                        {siteConfig.phone}
                       </a>
                     </div>
                   </div>
@@ -67,13 +69,13 @@ export default function ContactPage() {
                   </div>
 
                   <div className="flex items-start gap-3">
-                    <MapPin className="h-5 w-5 text-[#1E3D42] shrink-0 mt-0.5" />
+                    <MapPin className="h-5 w-5 text-[#378AA4] shrink-0 mt-0.5" />
                     <div>
                       <p className="font-medium text-[#1E3D42] text-sm">Address</p>
                       <address className="text-sm text-muted-foreground not-italic">
-                        5834 Monroe Street
+                        {siteConfig.address.street}
                         <br />
-                        Sylvania, OH 43560
+                        {siteConfig.address.city}, {siteConfig.address.state} {siteConfig.address.zip}
                       </address>
                     </div>
                   </div>
@@ -87,19 +89,17 @@ export default function ContactPage() {
                   Service Times
                 </h3>
                 <div className="space-y-2">
-                  <div>
-                    <p className="font-medium text-[#1E3D42] text-sm">Sunday</p>
-                    <p className="text-sm text-muted-foreground">Sunday Morning Service - 10:30 a.m.</p>
-                  </div>
-                  <div>
-                    <p className="font-medium text-[#1E3D42] text-sm">Thursday</p>
-                    <p className="text-sm text-muted-foreground">Evening Bible Study - 7:00 p.m.</p>
-                  </div>
+                  {siteConfig.serviceTimes.map((service) => (
+                    <div key={service.name}>
+                      <p className="font-medium text-[#1E3D42] text-sm">{service.day}</p>
+                      <p className="text-sm text-muted-foreground">{service.name} - {service.time}</p>
+                    </div>
+                  ))}
                 </div>
               </div>
 
               {/* Prayer Request */}
-              <div className="p-6 rounded-xl bg-slate-50/70">
+              <div className="p-6 border border-slate-200 rounded-lg bg-white">
                 <h3 className="font-serif text-lg font-semibold text-[#1E3D42] mb-3">Prayer Request</h3>
                 <p className="text-sm text-muted-foreground mb-4">Our prayer team would be honored to pray for you.</p>
                 <PrayerRequestForm />
