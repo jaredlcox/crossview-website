@@ -145,7 +145,7 @@ export default function AboutPage() {
             <div className="space-y-6">
               <div className="relative aspect-[4/3] rounded-lg overflow-hidden bg-slate-100 mb-6">
                 <Image
-                  src="/placeholder.jpg"
+                  src="/matt-and-vickie.png"
                   alt="Matt and Vickie Bernsdorf"
                   fill
                   className="object-cover"
