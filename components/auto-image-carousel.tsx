@@ -41,7 +41,7 @@ export function AutoImageCarousel({ images, alt = "Church images", interval = 40
       aria-roledescription="carousel"
       aria-label="Church images carousel"
     >
-      <div className="relative aspect-[4/3] w-full">
+      <div className="relative aspect-[4/3] w-full bg-slate-100">
         {images.map((image, index) => (
           <div
             key={index}
@@ -58,7 +58,7 @@ export function AutoImageCarousel({ images, alt = "Church images", interval = 40
               src={image}
               alt={`${alt} ${index + 1}`}
               fill
-              className="object-cover"
+              className="object-contain"
               priority={index === 0}
               sizes="(max-width: 768px) 100vw, 50vw"
             />

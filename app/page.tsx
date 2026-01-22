@@ -1,10 +1,11 @@
 import Link from "next/link"
-import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { FeaturedEventCard, UpcomingEventsList } from "@/components/events-list"
 import { ServiceTimesGrid } from "@/components/service-times-grid"
 import { ContactBlock } from "@/components/contact-block"
 import { AutoImageCarousel } from "@/components/auto-image-carousel"
+import { MinistryCardsCarousel } from "@/components/ministry-cards-carousel"
+import { ministries } from "@/lib/ministries"
 import { getFullAddress } from "@/lib/site"
 import { MapPin, Church } from "lucide-react"
 
@@ -58,21 +59,18 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Right Column - Image Card */}
-            <div className="relative group">
-              <div className="relative aspect-[4/3] rounded-lg overflow-hidden shadow-lg">
-                <Image
-                  src="/church-gathering.jpg"
-                  alt="Church community gathering"
-                  fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                />
-                {/* Subtle gradient overlay for depth */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent"></div>
-              </div>
-              {/* Decorative accent */}
-              <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-[#F1802C]/10 rounded-full blur-2xl -z-10"></div>
+            {/* Right Column - Ministry Cards Carousel */}
+            <div>
+              <MinistryCardsCarousel
+                ministries={ministries.filter(
+                  (m) =>
+                    m.id === "crossview-kids" ||
+                    m.id === "griefshare" ||
+                    m.id === "mens-bible-study" ||
+                    m.id === "ladies-brunch"
+                )}
+                interval={5000}
+              />
             </div>
           </div>
         </div>
