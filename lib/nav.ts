@@ -15,16 +15,7 @@ export const navigation: NavItem[] = [
     ],
   },
   { label: "Beliefs", href: "/beliefs" },
-  {
-    label: "Ministries",
-    href: "/ministries",
-    children: [
-      { label: "Crossview Kids", href: "/ministries#crossview-kids" },
-      { label: "GriefShare", href: "/ministries#griefshare" },
-      { label: "Men's Bible Study", href: "/ministries#mens-bible-study" },
-      { label: "Ladies Brunch & Bible", href: "/ministries#ladies-brunch" },
-    ],
-  },
+  { label: "Ministries", href: "/ministries" },
   { label: "Give", href: "/give" },
   { label: "Location", href: "/location" },
   { label: "Contact", href: "/contact" },
