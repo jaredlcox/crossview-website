@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button"
 import { FeaturedEventCard, UpcomingEventsList } from "@/components/events-list"
 import { ServiceTimesGrid } from "@/components/service-times-grid"
 import { ContactBlock } from "@/components/contact-block"
+import { AutoImageCarousel } from "@/components/auto-image-carousel"
 import { getFullAddress } from "@/lib/site"
 import { MapPin, Church } from "lucide-react"
 
@@ -115,11 +116,35 @@ export default function HomePage() {
       </section>
 
       {/* Join Us - Service Times */}
-      <section className="py-16 md:py-20 bg-white">
+      <section className="py-16 md:py-20 lg:py-24 bg-white">
         <div className="container mx-auto px-4 md:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="font-serif text-2xl md:text-3xl font-bold text-[#1E3D42] mb-8 text-center">Join Us!</h2>
-            <ServiceTimesGrid />
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center max-w-6xl mx-auto">
+            {/* Left Column - Image Carousel */}
+            <div className="order-2 lg:order-1">
+              <AutoImageCarousel
+                images={[
+                  "/church-gathering.jpg",
+                  "/kids_ministry.jpg",
+                  "/church-entrance.jpg",
+                  "/griefshare.jpg",
+                ]}
+                alt="Crossview Church activities"
+                interval={4500}
+              />
+            </div>
+
+            {/* Right Column - Content (Left Aligned) */}
+            <div className="space-y-6 order-1 lg:order-2">
+              <div>
+                <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-[#1E3D42] mb-4">
+                  Join Us!
+                </h2>
+                <div className="h-1 w-16 bg-[#F1802C] mb-6"></div>
+              </div>
+              <div>
+                <ServiceTimesGrid />
+              </div>
+            </div>
           </div>
         </div>
       </section>
