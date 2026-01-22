@@ -1,9 +1,10 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 import { usePathname } from "next/navigation"
 import { useState } from "react"
-import { Menu, Cross, ChevronDown } from "lucide-react"
+import { Menu, ChevronDown } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet"
 import {
@@ -30,9 +31,14 @@ export function SiteHeader() {
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2" aria-label="Crossview Church Home">
-          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#1E3D42]">
-            <Cross className="h-5 w-5 text-white" aria-hidden="true" />
-          </div>
+          <Image
+            src="/FINAL_LOGO.jpeg"
+            alt="Crossview Church"
+            width={40}
+            height={40}
+            className="h-8 w-8 object-contain"
+            priority
+          />
           <span className="font-serif text-lg font-bold text-[#1E3D42]">Crossview</span>
         </Link>
 
@@ -100,9 +106,13 @@ export function SiteHeader() {
           <SheetContent side="right" className="w-[280px] sm:w-[320px]">
             <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
             <div className="flex items-center gap-2 mb-8">
-              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#1E3D42]">
-                <Cross className="h-5 w-5 text-white" />
-              </div>
+              <Image
+                src="/FINAL_LOGO.jpeg"
+                alt="Crossview Church"
+                width={32}
+                height={32}
+                className="h-8 w-8 object-contain"
+              />
               <span className="font-serif text-lg font-bold text-[#1E3D42]">Crossview</span>
             </div>
             <nav className="flex flex-col gap-1" aria-label="Mobile navigation">

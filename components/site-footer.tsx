@@ -1,5 +1,6 @@
 import Link from "next/link"
-import { Cross, Phone, MapPin, Clock, Mail } from "lucide-react"
+import Image from "next/image"
+import { Phone, MapPin, Clock, Mail } from "lucide-react"
 import { siteConfig, getFullAddress } from "@/lib/site"
 import { navigation } from "@/lib/nav"
 
@@ -11,9 +12,13 @@ export function SiteFooter() {
           {/* Logo & About */}
           <div className="space-y-4">
             <Link href="/" className="flex items-center gap-2" aria-label="Crossview Church Home">
-              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-white/10">
-                <Cross className="h-6 w-6 text-[#F1802C]" aria-hidden="true" />
-              </div>
+              <Image
+                src="/FINAL_LOGO.jpeg"
+                alt="Crossview Church"
+                width={40}
+                height={40}
+                className="h-10 w-10 object-contain"
+              />
               <span className="font-serif text-xl font-bold">Crossview</span>
             </Link>
             <p className="text-white/80 text-sm leading-relaxed">{siteConfig.tagline}</p>
