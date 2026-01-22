@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { FeaturedEventCard, UpcomingEventsList } from "@/components/events-list"
 import { ServiceTimesGrid } from "@/components/service-times-grid"
@@ -117,18 +118,17 @@ export default function HomePage() {
       <section className="py-16 md:py-20 lg:py-24 bg-white">
         <div className="container mx-auto px-4 md:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center max-w-6xl mx-auto">
-            {/* Left Column - Image Carousel */}
+            {/* Left Column - Image */}
             <div className="order-2 lg:order-1">
-              <AutoImageCarousel
-                images={[
-                  "/church-gathering.jpg",
-                  "/kids_ministry.jpg",
-                  "/church-entrance.jpg",
-                  "/griefshare.jpg",
-                ]}
-                alt="Crossview Church activities"
-                interval={4500}
-              />
+              <div className="relative aspect-[4/3] rounded-lg overflow-hidden shadow-lg bg-slate-100">
+                <Image
+                  src="/church-gathering.jpg"
+                  alt="Crossview Church gathering"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+              </div>
             </div>
 
             {/* Right Column - Content (Left Aligned) */}
