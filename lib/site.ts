@@ -25,5 +25,5 @@ export const siteConfig = {
 
 export function getFullAddress() {
   const { street, city, state, zip } = siteConfig.address
-  return `Crossview Church, ${street}, ${city}, ${state} ${zip}`
+  return `${street}, ${city}, ${state} ${zip}`
 }
