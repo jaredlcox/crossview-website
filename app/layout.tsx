@@ -4,6 +4,7 @@ import { Inter, Merriweather } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
+import { ScrollToTop } from "@/components/scroll-to-top"
 import "./globals.css"
 
 const inter = Inter({ subsets: ["latin"] })
@@ -43,6 +44,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="font-sans antialiased min-h-screen flex flex-col">
+        <ScrollToTop />
         <SiteHeader />
         <main className="flex-1">{children}</main>
         <SiteFooter />
