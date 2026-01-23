@@ -149,14 +149,29 @@ export default function HomePage() {
       </section>
 
       {/* What's Happening */}
-      <section className="py-16 md:py-20 bg-slate-50/50">
+      <section className="py-12 md:py-16 bg-white">
         <div className="container mx-auto px-4 md:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="font-serif text-2xl md:text-3xl font-bold text-[#1E3D42] mb-8 text-center">What's Happening</h2>
-            <div className="grid gap-8 lg:grid-cols-2">
-              <FeaturedEventCard />
-              <div>
-                <h3 className="font-serif text-lg font-semibold text-[#1E3D42] mb-6">Upcoming Events</h3>
+          <div className="max-w-6xl mx-auto">
+            <div className="mb-6 text-center">
+              <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-[#1E3D42] mb-4">
+                What's Happening
+              </h2>
+              <div className="h-1 w-16 bg-[#F1802C] mx-auto mb-6"></div>
+            </div>
+            
+            <div className="grid gap-4 lg:grid-cols-2">
+              {/* Featured Event */}
+              <div className="lg:col-span-1">
+                <FeaturedEventCard />
+              </div>
+              
+              {/* Upcoming Events */}
+              <div className="lg:col-span-1">
+                <div className="mb-3">
+                  <h3 className="font-serif text-lg md:text-xl font-bold text-[#1E3D42] mb-1">
+                    Upcoming Events
+                  </h3>
+                </div>
                 <UpcomingEventsList limit={3} />
               </div>
             </div>
