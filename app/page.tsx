@@ -31,6 +31,23 @@ export default function HomePage() {
             <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto">
               Christ… Connection… Community
             </p>
+            {/* Call-to-Action Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
+              <Button
+                asChild
+                size="lg"
+                className="h-12 px-8 font-medium bg-[#F1802C] hover:bg-[#F1802C]/90 text-white shadow-lg hover:shadow-xl transition-all duration-200"
+              >
+                <Link href="/about">Get to Know Us</Link>
+              </Button>
+              <Button
+                asChild
+                size="lg"
+                className="h-12 px-8 font-medium bg-white text-[#1E3D42] hover:bg-white/90 shadow-lg hover:shadow-xl transition-all duration-200"
+              >
+                <Link href="/ministries">Ministries</Link>
+              </Button>
+            </div>
           </div>
         </div>
       </section>
