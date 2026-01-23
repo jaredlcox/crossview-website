@@ -19,7 +19,7 @@ const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://crossview.jaredcox.
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: {
-    default: "Crossview Church | A Place to Belong, Believe, and Become",
+    default: "Crossview Church",
     template: "%s | Crossview Church",
   },
   description:
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: baseUrl,
     siteName: "Crossview Church",
-    title: "Crossview Church | A Place to Belong, Believe, and Become",
+    title: "Crossview Church",
     description:
       "Welcome to Crossview Church. Join us for Sunday services at 10:30 a.m. A welcoming community focused on faith, fellowship, and serving others.",
     images: [
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary",
-    title: "Crossview Church | A Place to Belong, Believe, and Become",
+    title: "Crossview Church",
     description:
       "Welcome to Crossview Church. Join us for Sunday services at 10:30 a.m. A welcoming community focused on faith, fellowship, and serving others.",
     images: ["/crossview-logo.png"],
