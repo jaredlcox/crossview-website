@@ -41,7 +41,8 @@ export function MinistryCardsCarousel({ ministries, interval = 5000, className }
       aria-roledescription="carousel"
       aria-label="Ministry cards carousel"
     >
-      <div className="relative aspect-[4/3] w-full">
+      {/* <div className="relative aspect-3/2 w-full"> */}
+      <div className="relative aspect-3/2 sm:aspect-square md:aspect-video lg:aspect-4/3 w-full">
         {ministries.map((ministry, index) => (
           <div
             key={ministry.id}
@@ -61,7 +62,7 @@ export function MinistryCardsCarousel({ ministries, interval = 5000, className }
                   src={ministry.image}
                   alt={ministry.title}
                   fill
-                  className={ministry.imageFit === "contain" ? "object-contain" : "object-cover"}
+                  className=""
                   priority={index === 0}
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
