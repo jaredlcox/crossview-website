@@ -1,7 +1,5 @@
 import type { Metadata } from "next"
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
+import { Heart, Clock } from "lucide-react"
 
 export const metadata: Metadata = {
   title: "Give",
@@ -9,69 +7,31 @@ export const metadata: Metadata = {
     "Support the ministry of Crossview Church through your generous giving. Give online securely or learn about other ways to give.",
 }
 
-const faqs = [
-  {
-    id: "secure",
-    question: "Is online giving secure?",
-    answer:
-      "Yes! We use bank-level encryption and partner with trusted payment processors to ensure your financial information is always protected.",
-  },
-  {
-    id: "receipts",
-    question: "Will I receive a giving receipt?",
-    answer:
-      "Absolutely. You'll receive an email confirmation after each gift. We also provide annual giving statements for tax purposes.",
-  },
-  {
-    id: "funds",
-    question: "Where does my money go?",
-    answer:
-      "Your generosity supports our church's mission: worship services, children and youth programs, community outreach, missions partnerships, and facility maintenance.",
-  },
-]
-
 export default function GivePage() {
   return (
     <>
-      {/* Page Title */}
-      <section className="py-16 md:py-20 bg-white border-b border-slate-200/60">
+      {/* Online Giving Coming Soon */}
+      <section className="pt-16 md:pt-20 pb-12 md:pb-16 bg-white">
         <div className="container mx-auto px-4 md:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto">
-            <h1 className="font-serif text-3xl md:text-4xl font-bold text-[#1E3D42] mb-4">GIVE</h1>
-            <p className="text-base text-muted-foreground leading-7 mb-8">
-              Your generosity makes a difference. Every gift supports our mission to share the love of Christ in our community and beyond. We believe that giving is an act of worship — a response to God's incredible generosity toward us.
-            </p>
-            <Button asChild className="h-12 px-8 font-medium bg-[#F1802C] hover:opacity-90 text-white">
-              <Link href="#">Give Online</Link>
-            </Button>
+          <div className="max-w-2xl mx-auto">
+            <div className="text-center p-8 md:p-12 rounded-lg border-2 border-dashed border-slate-300 bg-slate-50/50">
+              <div className="flex justify-center mb-4">
+                <div className="relative">
+                  <Heart className="h-12 w-12 md:h-16 md:w-16 text-[#F1802C]" />
+                  <Clock className="h-6 w-6 md:h-8 md:w-8 text-[#378AA4] absolute -bottom-1 -right-1 bg-white rounded-full p-1" />
+                </div>
+              </div>
+              <h2 className="font-serif text-2xl md:text-3xl font-bold text-[#1E3D42] mb-3">
+                Online Giving Coming Soon
+              </h2>
+              <p className="text-base text-muted-foreground leading-relaxed mb-6">
+                We're working on bringing you a secure and convenient way to give online.
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* FAQ Section */}
-      <section className="py-16 md:py-20 bg-white">
-        <div className="container mx-auto px-4 md:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="font-serif text-2xl font-bold text-[#1E3D42] mb-8">Frequently Asked Questions</h2>
-            <Accordion type="single" collapsible className="space-y-3">
-              {faqs.map((faq) => (
-                <AccordionItem
-                  key={faq.id}
-                  value={faq.id}
-                  className="border border-slate-200 rounded-lg px-5 bg-white"
-                >
-                  <AccordionTrigger className="hover:no-underline py-4">
-                    <span className="text-left font-medium text-[#1E3D42]">{faq.question}</span>
-                  </AccordionTrigger>
-                  <AccordionContent className="pb-4 text-sm text-muted-foreground leading-7">
-                    {faq.answer}
-                  </AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
-          </div>
-        </div>
-      </section>
     </>
   )
 }
