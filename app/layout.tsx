@@ -22,8 +22,8 @@ export const metadata: Metadata = {
     "Welcome to Crossview Church. Join us for Sunday services at 10:30 a.m. A welcoming community focused on faith, fellowship, and serving others.",
   keywords: ["church", "worship", "community", "faith", "Springfield", "Bible study"],
   icons: {
-    icon: "/FINAL_LOGO.jpeg",
-    apple: "/FINAL_LOGO.jpeg",
+    icon: "/crossview-logo.png",
+    apple: "/crossview-logo.png",
   },
   openGraph: {
     type: "website",
