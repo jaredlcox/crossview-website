@@ -18,11 +18,11 @@ export function LocationMap({ className }: LocationMapProps) {
         {/* Left Column - Location Info */}
         <div className="space-y-6">
           <div>
-            <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-[#1E3D42] mb-4">
+            <h2 className="font-serif text-3xl md:text-4xl font-bold text-[#1E3D42] mb-4">
               Our Location
             </h2>
             <div className="h-1 w-16 bg-[#F1802C] mb-6"></div>
-            <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
+            <p className="text-base text-muted-foreground leading-relaxed">
               We're located at <strong className="text-[#1E3D42]">{siteConfig.address.street}</strong> in{" "}
               <strong className="text-[#1E3D42]">{siteConfig.address.city}, {siteConfig.address.state}</strong>.{" "}
               If you are a part of our community or just visiting the area, please stop by. We love meeting new people and we would love to meet you!

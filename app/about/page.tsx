@@ -1,6 +1,5 @@
 import type { Metadata } from "next"
 import Image from "next/image"
-import { CheckCircle2 } from "lucide-react"
 
 export const metadata: Metadata = {
   title: "About Us",
@@ -57,23 +56,34 @@ const coreValues = [
 export default function AboutPage() {
   return (
     <>
+      {/* Page Header */}
+      <section className="pt-12 md:pt-16 pb-4 md:pb-6 bg-white">
+        <div className="container mx-auto px-4 md:px-6 lg:px-8">
+          <div className="max-w-3xl mx-auto text-center">
+            <h1 className="font-serif text-3xl md:text-4xl font-bold text-[#1E3D42] mb-3">About Us</h1>
+            <div className="h-1 w-16 bg-[#F1802C] mx-auto mb-4"></div>
+            <p className="text-base text-muted-foreground leading-7">
+              Learn about Crossview Church - our vision, values, and leadership. Discover what makes our community special.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Who We Are & Vision Combined */}
       <section className="py-12 md:py-16 bg-white">
         <div className="container mx-auto px-4 md:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto space-y-8">
             <div>
-              <h2 className="font-serif text-3xl md:text-4xl font-bold text-[#1E3D42] mb-3">Who We Are</h2>
-              <div className="h-1 w-16 bg-[#F1802C] mb-4"></div>
-              <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
+              <h2 className="font-serif text-2xl md:text-3xl font-bold text-[#1E3D42] mb-3">Who We Are</h2>
+              <p className="text-base text-muted-foreground leading-relaxed">
                 We invite you to experience God's love, grace, and truth in a caring church family. Crossview is an
                 independent, Bible-based church where God's Word is taught clearly and Jesus Christ is at the center of
                 all we do. If you're seeking to grow closer to God and understand the Bible, we would love to help.
               </p>
             </div>
             <div id="vision">
-              <h2 className="font-serif text-3xl md:text-4xl font-bold text-[#1E3D42] mb-3">Our Vision</h2>
-              <div className="h-1 w-16 bg-[#F1802C] mb-4"></div>
-              <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
+              <h2 className="font-serif text-2xl md:text-3xl font-bold text-[#1E3D42] mb-3">Our Vision</h2>
+              <p className="text-base text-muted-foreground leading-relaxed">
                 Our name reflects our vision, which is to keep the cross of Christ at the center of our lives, our
                 church, and our mission to the world.
               </p>
@@ -86,16 +96,12 @@ export default function AboutPage() {
       <section className="py-12 md:py-16 bg-slate-50/50">
         <div className="container mx-auto px-4 md:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
-            <h2 className="font-serif text-3xl md:text-4xl font-bold text-[#1E3D42] mb-4">Our Goal</h2>
-            <div className="h-1 w-16 bg-[#F1802C] mb-6"></div>
+            <h2 className="font-serif text-2xl md:text-3xl font-bold text-[#1E3D42] mb-4">Our Goal</h2>
             <ul className="grid sm:grid-cols-2 gap-4 md:gap-6">
               {goals.map((goal) => (
-                <li key={goal.title} className="flex items-start gap-3 p-4 rounded-lg bg-white border border-slate-200/60 hover:shadow-md transition-shadow">
-                  <CheckCircle2 className="h-5 w-5 shrink-0 text-[#378AA4] mt-0.5" />
-                  <div>
-                    <h3 className="font-semibold text-[#1E3D42] mb-1">{goal.title}</h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed">{goal.description}</p>
-                  </div>
+                <li key={goal.title} className="p-4 rounded-lg bg-white border border-slate-200/60 hover:shadow-md transition-shadow">
+                  <h3 className="font-semibold text-[#1E3D42] mb-1">{goal.title}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{goal.description}</p>
                 </li>
               ))}
             </ul>
@@ -107,8 +113,7 @@ export default function AboutPage() {
       <section className="py-12 md:py-16 bg-white">
         <div className="container mx-auto px-4 md:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
-            <h2 className="font-serif text-3xl md:text-4xl font-bold text-[#1E3D42] mb-4">Our Core Values</h2>
-            <div className="h-1 w-16 bg-[#F1802C] mb-6"></div>
+            <h2 className="font-serif text-2xl md:text-3xl font-bold text-[#1E3D42] mb-4">Our Core Values</h2>
             <div className="grid md:grid-cols-2 gap-6">
               {coreValues.map((value) => (
                 <div key={value.title} className="p-5 rounded-lg bg-slate-50/50 border border-slate-200/60 hover:shadow-md transition-shadow">
@@ -125,8 +130,7 @@ export default function AboutPage() {
       <section id="leadership" className="py-12 md:py-16 bg-slate-50/50">
         <div className="container mx-auto px-4 md:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
-            <h2 className="font-serif text-3xl md:text-4xl font-bold text-[#1E3D42] mb-4">Leadership</h2>
-            <div className="h-1 w-16 bg-[#F1802C] mb-6"></div>
+            <h2 className="font-serif text-2xl md:text-3xl font-bold text-[#1E3D42] mb-4">Leadership</h2>
             <div className="grid md:grid-cols-2 gap-6 md:gap-8 items-start">
               <div className="relative aspect-[4/3] rounded-lg overflow-hidden bg-slate-100 shadow-lg">
                 <Image

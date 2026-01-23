@@ -42,12 +42,12 @@ export default function HomePage() {
             {/* Left Column - Text Content */}
             <div className="space-y-6">
               <div>
-                <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-[#1E3D42] mb-4">
+                <h2 className="font-serif text-3xl md:text-4xl font-bold text-[#1E3D42] mb-4">
                   Ministries
                 </h2>
                 <div className="h-1 w-16 bg-[#F1802C] mb-6"></div>
               </div>
-              <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-xl">
+              <p className="text-base text-muted-foreground leading-relaxed max-w-xl">
                 God has uniquely gifted each of us for service. Whether you're looking for a place to grow, connect, or serve, there's a ministry for you.
               </p>
               <div className="pt-2">
@@ -135,7 +135,7 @@ export default function HomePage() {
             {/* Right Column - Content (Left Aligned) */}
             <div className="space-y-6 order-1 lg:order-2">
               <div>
-                <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-[#1E3D42] mb-4">
+                <h2 className="font-serif text-3xl md:text-4xl font-bold text-[#1E3D42] mb-4">
                   Join Us!
                 </h2>
                 <div className="h-1 w-16 bg-[#F1802C] mb-6"></div>
@@ -153,7 +153,7 @@ export default function HomePage() {
         <div className="container mx-auto px-4 md:px-6 lg:px-8">
           <div className="max-w-6xl mx-auto">
             <div className="mb-6 text-center">
-              <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-[#1E3D42] mb-4">
+              <h2 className="font-serif text-3xl md:text-4xl font-bold text-[#1E3D42] mb-4">
                 What's Happening
               </h2>
               <div className="h-1 w-16 bg-[#F1802C] mx-auto mb-6"></div>

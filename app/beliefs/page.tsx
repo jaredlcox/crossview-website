@@ -30,22 +30,30 @@ function formatScriptureLinks(scriptures: string[]) {
 
 export default function BeliefsPage() {
   return (
-    <section className="py-12 md:py-16 bg-white">
-      <div className="container mx-auto px-4 md:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto">
-          <div className="space-y-6">
+    <>
+      {/* Page Header */}
+      <section className="pt-12 md:pt-16 pb-4 md:pb-6 bg-white">
+        <div className="container mx-auto px-4 md:px-6 lg:px-8">
+          <div className="max-w-3xl mx-auto text-center">
+            <h1 className="font-serif text-3xl md:text-4xl font-bold text-[#1E3D42] mb-3">What We Believe</h1>
+            <div className="h-1 w-16 bg-[#F1802C] mx-auto mb-4"></div>
+            <p className="text-base text-muted-foreground leading-7">
+              Explore the core beliefs and doctrines of Crossview Church. Learn what we believe about Scripture, God, Jesus, salvation, and more.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Beliefs Content */}
+      <section className="py-12 md:py-16 bg-white">
+        <div className="container mx-auto px-4 md:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto space-y-8">
             {beliefs.map((belief, index) => (
-              <div
-                key={belief.id}
-                className={`p-6 rounded-lg border border-slate-200/60 hover:shadow-md transition-shadow ${
-                  index % 2 === 0 ? "bg-white" : "bg-slate-50/50"
-                }`}
-              >
-                <h3 className="font-serif text-3xl md:text-4xl font-bold text-[#1E3D42] mb-3">
+              <div key={belief.id}>
+                <h2 className="font-serif text-2xl md:text-3xl font-bold text-[#1E3D42] mb-3">
                   {belief.title}
-                </h3>
-                <div className="h-1 w-16 bg-[#F1802C] mb-4"></div>
-                <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-4">
+                </h2>
+                <p className="text-base text-muted-foreground leading-relaxed mb-4">
                   {belief.content}
                 </p>
                 <div className="pt-3 border-t border-slate-200/60">
@@ -58,7 +66,7 @@ export default function BeliefsPage() {
             ))}
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   )
 }

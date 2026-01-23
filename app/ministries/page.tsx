@@ -28,7 +28,8 @@ export default function MinistriesPage() {
       <section className="pt-12 md:pt-16 pb-4 md:pb-6 bg-white">
         <div className="container mx-auto px-4 md:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
-            <h1 className="font-serif text-3xl md:text-4xl font-bold text-[#1E3D42] mb-3">MINISTRIES</h1>
+            <h1 className="font-serif text-3xl md:text-4xl font-bold text-[#1E3D42] mb-3">Ministries</h1>
+            <div className="h-1 w-16 bg-[#F1802C] mx-auto mb-4"></div>
             <p className="text-base text-muted-foreground leading-7">
               God has uniquely gifted each of us for service. Whether you're looking for a place to grow, connect, or serve, there's a ministry for you.
             </p>
