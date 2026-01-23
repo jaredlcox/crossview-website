@@ -7,6 +7,7 @@ import { ContactBlock } from "@/components/contact-block"
 import { AutoImageCarousel } from "@/components/auto-image-carousel"
 import { MinistryCardsCarousel } from "@/components/ministry-cards-carousel"
 import { LocationMap } from "@/components/location-map"
+import { ScrollReveal } from "@/components/scroll-reveal"
 import { ministries } from "@/lib/ministries"
 import { getFullAddress } from "@/lib/site"
 import { Church } from "lucide-react"
@@ -40,40 +41,44 @@ export default function HomePage() {
         <div className="container mx-auto px-4 md:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             {/* Left Column - Text Content */}
-            <div className="space-y-6">
-              <div>
-                <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-[#1E3D42] mb-4">
-                  Ministries
-                </h2>
-                <div className="h-1 w-16 bg-[#F1802C] mb-6"></div>
+            <ScrollReveal direction="right" delay={0}>
+              <div className="space-y-6">
+                <div>
+                  <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-[#1E3D42] mb-4">
+                    Ministries
+                  </h2>
+                  <div className="h-1 w-16 bg-[#F1802C] mb-6"></div>
+                </div>
+                <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-xl">
+                  God has uniquely gifted each of us for service. Whether you're looking for a place to grow, connect, or serve, there's a ministry for you.
+                </p>
+                <div className="pt-2">
+                  <Button
+                    asChild
+                    variant="outline"
+                    className="border-2 border-[#378AA4] text-[#378AA4] hover:bg-[#378AA4] hover:text-white transition-all duration-200 h-11 px-6 font-medium"
+                  >
+                    <Link href="/ministries">Learn More</Link>
+                  </Button>
+                </div>
               </div>
-              <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-xl">
-                God has uniquely gifted each of us for service. Whether you're looking for a place to grow, connect, or serve, there's a ministry for you.
-              </p>
-              <div className="pt-2">
-                <Button
-                  asChild
-                  variant="outline"
-                  className="border-2 border-[#378AA4] text-[#378AA4] hover:bg-[#378AA4] hover:text-white transition-all duration-200 h-11 px-6 font-medium"
-                >
-                  <Link href="/ministries">Learn More</Link>
-                </Button>
-              </div>
-            </div>
+            </ScrollReveal>
 
             {/* Right Column - Ministry Cards Carousel */}
-            <div>
-              <MinistryCardsCarousel
-                ministries={ministries.filter(
-                  (m) =>
-                    m.id === "crossview-kids" ||
-                    m.id === "griefshare" ||
-                    m.id === "mens-bible-study" ||
-                    m.id === "ladies-brunch"
-                )}
-                interval={5000}
-              />
-            </div>
+            <ScrollReveal direction="left" delay={100}>
+              <div>
+                <MinistryCardsCarousel
+                  ministries={ministries.filter(
+                    (m) =>
+                      m.id === "crossview-kids" ||
+                      m.id === "griefshare" ||
+                      m.id === "mens-bible-study" ||
+                      m.id === "ladies-brunch"
+                  )}
+                  interval={5000}
+                />
+              </div>
+            </ScrollReveal>
           </div>
         </div>
       </section>
@@ -82,35 +87,37 @@ export default function HomePage() {
       <section className="py-16 md:py-20 bg-[#1E3D42]">
         <div className="container mx-auto px-4 md:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
-            {/* Top Horizontal Line */}
-            <div className="h-px bg-black/20 mb-8"></div>
-            
-            {/* Church Icon */}
-            <div className="flex justify-center mb-8">
-              <Church className="h-12 w-12 md:h-16 md:w-16 text-white stroke-2" />
-            </div>
+            <ScrollReveal direction="fade" delay={0}>
+              {/* Top Horizontal Line */}
+              <div className="h-px bg-black/20 mb-8"></div>
+              
+              {/* Church Icon */}
+              <div className="flex justify-center mb-8">
+                <Church className="h-12 w-12 md:h-16 md:w-16 text-white stroke-2" />
+              </div>
 
-            {/* Main Text */}
-            <div className="mb-8">
-              <p className="font-serif text-xl md:text-2xl lg:text-3xl font-bold text-white leading-relaxed text-center max-w-3xl mx-auto">
-                We invite you to experience God's love, grace, and truth in a caring church family. Crossview is an independent,
-                Bible-based church where God's Word is taught clearly and Jesus Christ is at the center of all we do. If you're
-                seeking to grow closer to God and understand the Bible, we would love to help.
-              </p>
-            </div>
+              {/* Main Text */}
+              <div className="mb-8">
+                <p className="font-serif text-xl md:text-2xl lg:text-3xl font-bold text-white leading-relaxed text-center max-w-3xl mx-auto">
+                  We invite you to experience God's love, grace, and truth in a caring church family. Crossview is an independent,
+                  Bible-based church where God's Word is taught clearly and Jesus Christ is at the center of all we do. If you're
+                  seeking to grow closer to God and understand the Bible, we would love to help.
+                </p>
+              </div>
 
-            {/* Bottom Horizontal Line */}
-            <div className="h-px bg-black/20 mb-8"></div>
+              {/* Bottom Horizontal Line */}
+              <div className="h-px bg-black/20 mb-8"></div>
 
-            {/* Call to Action Button */}
-            <div className="flex justify-center">
-              <Button
-                asChild
-                className="h-12 px-8 font-medium bg-[#378AA4] hover:bg-[#378AA4]/90 text-white"
-              >
-                <Link href="/about">Our Values & More</Link>
-              </Button>
-            </div>
+              {/* Call to Action Button */}
+              <div className="flex justify-center">
+                <Button
+                  asChild
+                  className="h-12 px-8 font-medium bg-[#378AA4] hover:bg-[#378AA4]/90 text-white"
+                >
+                  <Link href="/about">Our Values & More</Link>
+                </Button>
+              </div>
+            </ScrollReveal>
           </div>
         </div>
       </section>
@@ -120,7 +127,7 @@ export default function HomePage() {
         <div className="container mx-auto px-4 md:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center max-w-6xl mx-auto">
             {/* Left Column - Image */}
-            <div className="order-2 lg:order-1">
+            <ScrollReveal direction="right" delay={0} className="order-2 lg:order-1">
               <div className="relative aspect-[4/3] rounded-lg overflow-hidden shadow-lg bg-slate-100">
                 <Image
                   src="/church-gathering.jpg"
@@ -130,10 +137,10 @@ export default function HomePage() {
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
               </div>
-            </div>
+            </ScrollReveal>
 
             {/* Right Column - Content (Left Aligned) */}
-            <div className="space-y-6 order-1 lg:order-2">
+            <ScrollReveal direction="left" delay={100} className="space-y-6 order-1 lg:order-2">
               <div>
                 <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-[#1E3D42] mb-4">
                   Join Us!
@@ -143,7 +150,7 @@ export default function HomePage() {
               <div>
                 <ServiceTimesGrid />
               </div>
-            </div>
+            </ScrollReveal>
           </div>
         </div>
       </section>
@@ -152,13 +159,19 @@ export default function HomePage() {
       <section className="py-16 md:py-20 bg-slate-50/50">
         <div className="container mx-auto px-4 md:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
-            <h2 className="font-serif text-2xl md:text-3xl font-bold text-[#1E3D42] mb-8 text-center">What's Happening</h2>
+            <ScrollReveal direction="up" delay={0}>
+              <h2 className="font-serif text-2xl md:text-3xl font-bold text-[#1E3D42] mb-8 text-center">What's Happening</h2>
+            </ScrollReveal>
             <div className="grid gap-8 lg:grid-cols-2">
-              <FeaturedEventCard />
-              <div>
-                <h3 className="font-serif text-lg font-semibold text-[#1E3D42] mb-6">Upcoming Events</h3>
-                <UpcomingEventsList limit={3} />
-              </div>
+              <ScrollReveal direction="right" delay={100}>
+                <FeaturedEventCard />
+              </ScrollReveal>
+              <ScrollReveal direction="left" delay={200}>
+                <div>
+                  <h3 className="font-serif text-lg font-semibold text-[#1E3D42] mb-6">Upcoming Events</h3>
+                  <UpcomingEventsList limit={3} />
+                </div>
+              </ScrollReveal>
             </div>
           </div>
         </div>
@@ -168,7 +181,9 @@ export default function HomePage() {
       <section className="py-16 md:py-20 lg:py-24 bg-white">
         <div className="container mx-auto px-4 md:px-6 lg:px-8">
           <div className="max-w-6xl mx-auto">
-            <LocationMap />
+            <ScrollReveal direction="up" delay={0}>
+              <LocationMap />
+            </ScrollReveal>
           </div>
         </div>
       </section>

@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import { beliefs } from "@/lib/beliefs"
+import { ScrollReveal } from "@/components/scroll-reveal"
 import Link from "next/link"
 
 export const metadata: Metadata = {
@@ -35,26 +36,27 @@ export default function BeliefsPage() {
         <div className="max-w-4xl mx-auto">
           <div className="space-y-6">
             {beliefs.map((belief, index) => (
-              <div
-                key={belief.id}
-                className={`p-6 rounded-lg border border-slate-200/60 hover:shadow-md transition-shadow ${
-                  index % 2 === 0 ? "bg-white" : "bg-slate-50/50"
-                }`}
-              >
-                <h3 className="font-serif text-3xl md:text-4xl font-bold text-[#1E3D42] mb-3">
-                  {belief.title}
-                </h3>
-                <div className="h-1 w-16 bg-[#F1802C] mb-4"></div>
-                <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-4">
-                  {belief.content}
-                </p>
-                <div className="pt-3 border-t border-slate-200/60">
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                    <span className="font-medium text-[#1E3D42]">Scripture References: </span>
-                    {formatScriptureLinks(belief.scriptures)}
+              <ScrollReveal key={belief.id} direction="up" delay={index * 50}>
+                <div
+                  className={`p-6 rounded-lg border border-slate-200/60 hover:shadow-md transition-shadow ${
+                    index % 2 === 0 ? "bg-white" : "bg-slate-50/50"
+                  }`}
+                >
+                  <h3 className="font-serif text-3xl md:text-4xl font-bold text-[#1E3D42] mb-3">
+                    {belief.title}
+                  </h3>
+                  <div className="h-1 w-16 bg-[#F1802C] mb-4"></div>
+                  <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-4">
+                    {belief.content}
                   </p>
+                  <div className="pt-3 border-t border-slate-200/60">
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      <span className="font-medium text-[#1E3D42]">Scripture References: </span>
+                      {formatScriptureLinks(belief.scriptures)}
+                    </p>
+                  </div>
                 </div>
-              </div>
+              </ScrollReveal>
             ))}
           </div>
         </div>
