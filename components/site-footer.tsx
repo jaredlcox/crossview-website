@@ -1,6 +1,6 @@
 import Link from "next/link"
 import Image from "next/image"
-import { Phone, MapPin, Clock, Mail } from "lucide-react"
+import { Phone, MapPin, Clock, Mail, Facebook } from "lucide-react"
 import { siteConfig, getFullAddress } from "@/lib/site"
 import { navigation } from "@/lib/nav"
 
@@ -74,6 +74,18 @@ export function SiteFooter() {
                 <MapPin className="h-4 w-4 mt-0.5 text-[#378AA4] shrink-0" aria-hidden="true" />
                 <address className="not-italic">{getFullAddress()}</address>
               </li>
+              <li>
+                <a
+                  href="https://www.facebook.com/groups/1231739738417968"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-sm text-white/80 hover:text-[#378AA4] transition-colors"
+                  aria-label="Visit our Facebook group"
+                >
+                  <Facebook className="h-4 w-4 text-[#378AA4] shrink-0" aria-hidden="true" />
+                  Facebook
+                </a>
+              </li>
             </ul>
           </div>
 
@@ -93,21 +105,6 @@ export function SiteFooter() {
                 </ul>
               ))}
             </div>
-          </div>
-        </div>
-
-        {/* Bottom Bar */}
-        <div className="mt-12 pt-8 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center gap-4">
-          <p className="text-sm text-white/60">
-            &copy; {new Date().getFullYear()} Crossview Church. All rights reserved.
-          </p>
-          <div className="flex gap-4">
-            <Link href="/contact" className="text-sm text-white/60 hover:text-[#378AA4] transition-colors">
-              Privacy Policy
-            </Link>
-            <Link href="/contact" className="text-sm text-white/60 hover:text-[#378AA4] transition-colors">
-              Accessibility
-            </Link>
           </div>
         </div>
       </div>

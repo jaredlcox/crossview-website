@@ -1,6 +1,6 @@
 import { ContactForm } from "@/components/contact-form"
 import { siteConfig, getFullAddress } from "@/lib/site"
-import { Phone, Mail, MapPin } from "lucide-react"
+import { Phone, Mail, MapPin, Facebook } from "lucide-react"
 
 export function ContactBlock() {
   return (
@@ -58,6 +58,21 @@ export function ContactBlock() {
                         <br />
                         {siteConfig.address.city}, {siteConfig.address.state} {siteConfig.address.zip}
                       </address>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-3">
+                    <Facebook className="h-5 w-5 text-[#378AA4] shrink-0 mt-0.5" />
+                    <div>
+                      <p className="font-medium text-[#1E3D42] text-sm">Facebook</p>
+                      <a
+                        href="https://www.facebook.com/groups/1231739738417968"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-sm text-muted-foreground hover:text-[#378AA4] transition-colors"
+                      >
+                        Join Our Group
+                      </a>
                     </div>
                   </div>
                 </div>

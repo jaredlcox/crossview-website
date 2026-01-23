@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 import { ContactForm } from "@/components/contact-form"
 import { PrayerRequestForm } from "@/components/prayer-request-form"
 import { siteConfig } from "@/lib/site"
-import { MapPin, Phone, Mail, Clock } from "lucide-react"
+import { MapPin, Phone, Mail, Clock, Facebook } from "lucide-react"
 
 export const metadata: Metadata = {
   title: "Contact Us",
@@ -81,6 +81,23 @@ export default function ContactPage() {
                       <br />
                       {siteConfig.address.city}, {siteConfig.address.state} {siteConfig.address.zip}
                     </address>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[#378AA4]/10 shrink-0">
+                    <Facebook className="h-5 w-5 text-[#378AA4]" />
+                  </div>
+                  <div>
+                    <p className="font-medium text-[#1E3D42] text-sm mb-1">Facebook</p>
+                    <a
+                      href="https://www.facebook.com/groups/1231739738417968"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm text-muted-foreground hover:text-[#378AA4] transition-colors"
+                    >
+                      Join Our Group
+                    </a>
                   </div>
                 </div>
               </div>
