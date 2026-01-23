@@ -41,7 +41,7 @@ export default function BeliefsPage() {
                   index % 2 === 0 ? "bg-white" : "bg-slate-50/50"
                 }`}
               >
-                <h3 className="font-serif text-xl md:text-2xl font-semibold text-[#1E3D42] mb-3">
+                <h3 className="font-serif text-3xl md:text-4xl font-bold text-[#1E3D42] mb-3">
                   {belief.title}
                 </h3>
                 <div className="h-1 w-16 bg-[#F1802C] mb-4"></div>
