@@ -58,55 +58,40 @@ const coreValues = [
 export default function AboutPage() {
   return (
     <>
-      {/* Page Title */}
-      <section className="py-12 md:py-16 bg-white border-b border-slate-200/60">
+      {/* Who We Are & Vision Combined */}
+      <section className="py-12 md:py-16 bg-white">
         <div className="container mx-auto px-4 md:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto">
-            <h1 className="font-serif text-3xl md:text-4xl font-bold text-[#1E3D42] mb-3">ABOUT US</h1>
-            <p className="text-base text-muted-foreground leading-7">
-              We're a community of Christ-followers seeking to know God, grow in faith, and make a difference in our world.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Who We Are */}
-      <section className="py-10 md:py-12 bg-white">
-        <div className="container mx-auto px-4 md:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="font-serif text-2xl font-bold text-[#1E3D42] mb-3">Who We Are</h2>
-            <div className="text-base text-muted-foreground leading-7">
-              <p>
+          <div className="max-w-4xl mx-auto space-y-8">
+            <div>
+              <h2 className="font-serif text-3xl md:text-4xl font-bold text-[#1E3D42] mb-3">Who We Are</h2>
+              <div className="h-1 w-16 bg-[#F1802C] mb-4"></div>
+              <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
                 We invite you to experience God's love, grace, and truth in a caring church family. Crossview is an
                 independent, Bible-based church where God's Word is taught clearly and Jesus Christ is at the center of
                 all we do. If you're seeking to grow closer to God and understand the Bible, we would love to help.
+              </p>
+            </div>
+            <div id="vision">
+              <h2 className="font-serif text-3xl md:text-4xl font-bold text-[#1E3D42] mb-3">Our Vision</h2>
+              <div className="h-1 w-16 bg-[#F1802C] mb-4"></div>
+              <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
+                Our name reflects our vision, which is to keep the cross of Christ at the center of our lives, our
+                church, and our mission to the world.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Our Vision */}
-      <section id="vision" className="py-10 md:py-12 bg-white border-t border-slate-200/60">
-        <div className="container mx-auto px-4 md:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="font-serif text-2xl font-bold text-[#1E3D42] mb-3">Our Vision</h2>
-            <p className="text-base text-muted-foreground leading-7">
-              Our name reflects our vision, which is to keep the cross of Christ at the center of our lives, our
-              church, and our mission to the world.
-            </p>
-          </div>
-        </div>
-      </section>
-
       {/* Our Goal */}
-      <section className="py-10 md:py-12 bg-white border-t border-slate-200/60">
+      <section className="py-12 md:py-16 bg-slate-50/50">
         <div className="container mx-auto px-4 md:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="font-serif text-2xl font-bold text-[#1E3D42] mb-4">Our Goal</h2>
-            <ul className="space-y-3">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="font-serif text-3xl md:text-4xl font-bold text-[#1E3D42] mb-4">Our Goal</h2>
+            <div className="h-1 w-16 bg-[#F1802C] mb-6"></div>
+            <ul className="grid sm:grid-cols-2 gap-4 md:gap-6">
               {goals.map((goal) => (
-                <li key={goal.title} className="flex items-start gap-3">
+                <li key={goal.title} className="flex items-start gap-3 p-4 rounded-lg bg-white border border-slate-200/60 hover:shadow-md transition-shadow">
                   <CheckCircle2 className="h-5 w-5 shrink-0 text-[#378AA4] mt-0.5" />
                   <div>
                     <h3 className="font-semibold text-[#1E3D42] mb-1">{goal.title}</h3>
@@ -120,14 +105,15 @@ export default function AboutPage() {
       </section>
 
       {/* Core Values */}
-      <section className="py-10 md:py-12 bg-white border-t border-slate-200/60">
+      <section className="py-12 md:py-16 bg-white">
         <div className="container mx-auto px-4 md:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="font-serif text-2xl font-bold text-[#1E3D42] mb-4">Our Core Values</h2>
-            <div className="space-y-4">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="font-serif text-3xl md:text-4xl font-bold text-[#1E3D42] mb-4">Our Core Values</h2>
+            <div className="h-1 w-16 bg-[#F1802C] mb-6"></div>
+            <div className="grid md:grid-cols-2 gap-6">
               {coreValues.map((value) => (
-                <div key={value.title}>
-                  <h3 className="font-serif text-lg font-semibold text-[#1E3D42] mb-1">{value.title}</h3>
+                <div key={value.title} className="p-5 rounded-lg bg-slate-50/50 border border-slate-200/60 hover:shadow-md transition-shadow">
+                  <h3 className="font-serif text-lg font-semibold text-[#1E3D42] mb-2">{value.title}</h3>
                   <p className="text-sm text-muted-foreground leading-relaxed">{value.description}</p>
                 </div>
               ))}
@@ -137,34 +123,36 @@ export default function AboutPage() {
       </section>
 
       {/* Leadership */}
-      <section id="leadership" className="py-10 md:py-12 bg-white border-t border-slate-200/60">
+      <section id="leadership" className="py-12 md:py-16 bg-slate-50/50">
         <div className="container mx-auto px-4 md:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="font-serif text-2xl font-bold text-[#1E3D42] mb-4">Leadership</h2>
-            <div className="space-y-4">
-              <div className="relative aspect-[4/3] rounded-lg overflow-hidden bg-slate-100 mb-4">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="font-serif text-3xl md:text-4xl font-bold text-[#1E3D42] mb-4">Leadership</h2>
+            <div className="h-1 w-16 bg-[#F1802C] mb-6"></div>
+            <div className="grid md:grid-cols-2 gap-6 md:gap-8 items-start">
+              <div className="relative aspect-[4/3] rounded-lg overflow-hidden bg-slate-100 shadow-lg">
                 <Image
                   src="/matt-and-vickie.png"
                   alt="Matt and Vickie Bernsdorf"
                   fill
                   className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
                 />
               </div>
               <div>
-                <h3 className="font-serif text-xl font-semibold text-[#1E3D42] mb-2">Matt and Vickie Bernsdorf</h3>
-                <p className="text-sm text-[#378AA4] font-medium mb-3">Pastoral Leadership</p>
-                <div className="space-y-3 text-sm text-muted-foreground leading-7">
+                <h3 className="font-serif text-2xl font-semibold text-[#1E3D42] mb-2">Matt and Vickie Bernsdorf</h3>
+                <p className="text-base text-[#378AA4] font-medium mb-4">Pastoral Leadership</p>
+                <div className="space-y-3 text-sm text-muted-foreground leading-relaxed">
                   <p>
                     In 2023, Matt and Vickie opened their home for a small Bible study that grew into what is now
                     Crossview Church. In 2025, the church moved into its current storefront location in Sylvania.
                   </p>
                   <p>
-                    <strong>Pastor Matt</strong> brings 25 years of full-time ministry experience, specializing in
+                    <strong className="text-[#1E3D42]">Pastor Matt</strong> brings 25 years of full-time ministry experience, specializing in
                     verse-by-verse teaching and biblical counseling. He holds advanced degrees and is a Licensed
                     Clinical Pastoral Counselor and Board Certified Mental Health Coach.
                   </p>
                   <p>
-                    <strong>Vickie</strong> is a registered nurse with over 20 years of pediatric experience.
+                    <strong className="text-[#1E3D42]">Vickie</strong> is a registered nurse with over 20 years of pediatric experience.
                   </p>
                   <p>
                     Together, they have four married adult children and seven grandchildren. Matt and Vickie came to
