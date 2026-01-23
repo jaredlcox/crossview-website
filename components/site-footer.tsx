@@ -20,11 +20,11 @@ export function SiteFooter() {
           <div className="space-y-4">
             <Link href="/" className="flex items-center gap-2" aria-label="Crossview Church Home">
               <Image
-                src="/FINAL_LOGO.jpeg"
+                src="/crossview-logo-white-text.png"
                 alt="Crossview Church"
-                width={40}
-                height={40}
-                className="h-10 w-10 object-contain"
+                width={56}
+                height={56}
+                className="h-14 w-14 object-contain"
               />
               <span className="font-serif text-xl font-bold">Crossview</span>
             </Link>

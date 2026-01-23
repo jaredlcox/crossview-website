@@ -32,11 +32,11 @@ export function SiteHeader() {
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2" aria-label="Crossview Church Home">
           <Image
-            src="/FINAL_LOGO.jpeg"
+            src="/crossview-logo.png"
             alt="Crossview Church"
-            width={40}
-            height={40}
-            className="h-8 w-8 object-contain"
+            width={56}
+            height={56}
+            className="h-14 w-14 object-contain"
             priority
           />
           <span className="font-serif text-lg font-bold text-[#1E3D42]">Crossview</span>
@@ -111,11 +111,11 @@ export function SiteHeader() {
             {/* Fixed Header */}
             <div className="flex items-center gap-2 px-6 pt-6 pb-4 border-b border-slate-200/60 shrink-0">
               <Image
-                src="/FINAL_LOGO.jpeg"
+                src="/crossview-logo.png"
                 alt="Crossview Church"
-                width={32}
-                height={32}
-                className="h-8 w-8 object-contain"
+                width={48}
+                height={48}
+                className="h-12 w-12 object-contain"
               />
               <span className="font-serif text-lg font-bold text-[#1E3D42]">Crossview</span>
             </div>
