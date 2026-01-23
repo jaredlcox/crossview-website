@@ -26,7 +26,7 @@ export const ministries: Ministry[] = [
     description: "Partnering with parents to help kids grow closer to God.",
     image: "/kids_ministry.jpg",
     details:
-      "Our goal is to partner with parents to move kids from where they are to where God wants them to be. We provide dedicated, safe, age-appropriate environments for preschool through third grade. Nursery care is provided for our Sunday morning service at 10:30 a.m.",
+      "We partner with parents to help kids grow in faith. Safe, age-appropriate environments for preschool through third grade. Nursery care available during our 10:30 a.m. Sunday service.",
   },
   {
     id: "youth",

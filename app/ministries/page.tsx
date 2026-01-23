@@ -5,6 +5,7 @@ import { ministries } from "@/lib/ministries"
 import Image from "next/image"
 import { Phone } from "lucide-react"
 import { useState } from "react"
+import { cn } from "@/lib/utils"
 
 // Filter to only the 4 ministries specified in requirements
 const featuredMinistries = ministries.filter(
@@ -47,7 +48,7 @@ export default function MinistriesPage() {
                 return (
                   <div
                     key={ministry.id}
-                    className="group relative aspect-[3/2] md:aspect-[4/3] rounded-lg overflow-hidden bg-slate-100 border border-slate-200 cursor-pointer touch-manipulation"
+                    className="group relative aspect-3/2 md:aspect-4/3 rounded-lg overflow-hidden bg-slate-100 border border-slate-200 cursor-pointer touch-manipulation"
                     onMouseEnter={() => setExpandedId(ministry.id)}
                     onMouseLeave={() => setExpandedId(null)}
                     onClick={() => handleCardInteraction(ministry.id)}
@@ -68,11 +69,14 @@ export default function MinistriesPage() {
                         src={ministry.image}
                         alt={ministry.title}
                         fill
-                        className="transition-transform duration-300 group-hover:scale-105"
+                        className={cn(
+                          "transition-all duration-300 group-hover:scale-105",
+                          isExpanded ? "blur-md md:blur-lg" : "blur-0"
+                        )}
                         sizes="(max-width: 768px) 100vw, 50vw"
                       />
                       {/* Dark Overlay - Stronger on mobile for readability */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#1E3D42]/95 via-[#1E3D42]/70 md:from-[#1E3D42]/90 md:via-[#1E3D42]/60 to-transparent" />
+                      <div className="absolute inset-0 bg-linear-to-t from-[#1E3D42]/95 via-[#1E3D42]/70 md:from-[#1E3D42]/90 md:via-[#1E3D42]/60 to-transparent" />
                     </div>
 
                     {/* Content Overlay */}
