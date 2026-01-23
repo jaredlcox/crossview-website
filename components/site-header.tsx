@@ -103,9 +103,13 @@ export function SiteHeader() {
               <Menu className="h-5 w-5" />
             </Button>
           </SheetTrigger>
-          <SheetContent side="right" className="w-[280px] sm:w-[320px]">
+          <SheetContent 
+            side="right" 
+            className="w-[280px] sm:w-[320px] flex flex-col h-full overflow-hidden p-0"
+          >
             <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
-            <div className="flex items-center gap-2 mb-8">
+            {/* Fixed Header */}
+            <div className="flex items-center gap-2 px-6 pt-6 pb-4 border-b border-slate-200/60 shrink-0">
               <Image
                 src="/FINAL_LOGO.jpeg"
                 alt="Crossview Church"
@@ -115,7 +119,11 @@ export function SiteHeader() {
               />
               <span className="font-serif text-lg font-bold text-[#1E3D42]">Crossview</span>
             </div>
-            <nav className="flex flex-col gap-1" aria-label="Mobile navigation">
+            {/* Scrollable Navigation */}
+            <nav 
+              className="flex flex-col gap-1 px-4 py-4 pb-6 overflow-y-auto flex-1 min-h-0" 
+              aria-label="Mobile navigation"
+            >
               {navigation.map((item) => {
                 const isActive = pathname === item.href || (item.children && item.children.some((child) => pathname === child.href))
                 const isMobileOpen = mobileOpenItems[item.href] || false
@@ -125,39 +133,47 @@ export function SiteHeader() {
                     <Collapsible key={item.href} open={isMobileOpen} onOpenChange={() => toggleMobileItem(item.href)}>
                       <CollapsibleTrigger
                         className={cn(
-                          "w-full px-3 py-3 text-base font-medium rounded-lg transition-colors flex items-center justify-between",
-                          "hover:text-[#F1802C]",
-                          "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#378AA4]",
-                          isActive ? "text-[#F1802C]" : "text-[#1E3D42]/70",
+                          "w-full px-4 py-3.5 text-base font-medium rounded-lg transition-all flex items-center justify-between",
+                          "hover:bg-slate-50 hover:text-[#F1802C] active:bg-slate-100",
+                          "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#378AA4] focus-visible:ring-offset-2",
+                          isActive ? "text-[#F1802C] bg-slate-50" : "text-[#1E3D42]/80",
                         )}
                       >
                         {item.label}
-                        <ChevronDown className={cn("h-4 w-4 transition-transform", isMobileOpen && "rotate-180")} />
+                        <ChevronDown className={cn("h-4 w-4 transition-transform duration-200 shrink-0", isMobileOpen && "rotate-180")} />
                       </CollapsibleTrigger>
-                      <CollapsibleContent className="pl-4 space-y-1">
-                        <Link
-                          href={item.href}
-                          onClick={() => setOpen(false)}
-                          className={cn(
-                            "block px-3 py-2 text-sm rounded-lg transition-colors",
-                            pathname === item.href ? "text-[#F1802C]" : "text-[#1E3D42]/70 hover:text-[#F1802C]",
-                          )}
-                        >
-                          Overview
-                        </Link>
-                        {item.children.map((child) => (
+                      <CollapsibleContent className="overflow-hidden data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:slide-out-to-top-2 data-[state=open]:slide-in-from-top-2">
+                        <div className="pl-4 pt-1 pb-2 space-y-0.5">
                           <Link
-                            key={child.href}
-                            href={child.href}
+                            href={item.href}
                             onClick={() => setOpen(false)}
                             className={cn(
-                              "block px-3 py-2 text-sm rounded-lg transition-colors",
-                              pathname === child.href ? "text-[#F1802C]" : "text-[#1E3D42]/70 hover:text-[#F1802C]",
+                              "block px-4 py-2.5 text-sm rounded-lg transition-colors",
+                              "hover:bg-slate-50 active:bg-slate-100",
+                              pathname === item.href 
+                                ? "text-[#F1802C] font-medium bg-slate-50" 
+                                : "text-[#1E3D42]/70 hover:text-[#F1802C]",
                             )}
                           >
-                            {child.label}
+                            Overview
                           </Link>
-                        ))}
+                          {item.children.map((child) => (
+                            <Link
+                              key={child.href}
+                              href={child.href}
+                              onClick={() => setOpen(false)}
+                              className={cn(
+                                "block px-4 py-2.5 text-sm rounded-lg transition-colors",
+                                "hover:bg-slate-50 active:bg-slate-100",
+                                pathname === child.href 
+                                  ? "text-[#F1802C] font-medium bg-slate-50" 
+                                  : "text-[#1E3D42]/70 hover:text-[#F1802C]",
+                              )}
+                            >
+                              {child.label}
+                            </Link>
+                          ))}
+                        </div>
                       </CollapsibleContent>
                     </Collapsible>
                   )
@@ -169,10 +185,10 @@ export function SiteHeader() {
                     href={item.href}
                     onClick={() => setOpen(false)}
                     className={cn(
-                      "px-3 py-3 text-base font-medium rounded-lg transition-colors",
-                      "hover:text-[#F1802C]",
-                      "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#378AA4]",
-                      isActive ? "text-[#F1802C]" : "text-[#1E3D42]/70",
+                      "px-4 py-3.5 text-base font-medium rounded-lg transition-all",
+                      "hover:bg-slate-50 hover:text-[#F1802C] active:bg-slate-100",
+                      "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#378AA4] focus-visible:ring-offset-2",
+                      isActive ? "text-[#F1802C] bg-slate-50" : "text-[#1E3D42]/80",
                     )}
                     aria-current={isActive ? "page" : undefined}
                   >
