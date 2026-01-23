@@ -19,9 +19,6 @@ export default function LocationPage() {
           </div>
         </div>
       </section>
-
-      {/* Connect With Us */}
-      <ContactBlock />
     </>
   )
 }

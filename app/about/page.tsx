@@ -1,6 +1,5 @@
 import type { Metadata } from "next"
 import Image from "next/image"
-import { ContactBlock } from "@/components/contact-block"
 import { CheckCircle2 } from "lucide-react"
 
 export const metadata: Metadata = {
@@ -165,9 +164,6 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-
-      {/* Contact Block */}
-      <ContactBlock />
     </>
   )
 }

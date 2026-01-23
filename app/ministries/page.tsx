@@ -133,9 +133,6 @@ export default function MinistriesPage() {
           </div>
         </div>
       </section>
-
-      {/* Contact Block */}
-      <ContactBlock />
     </>
   )
 }
