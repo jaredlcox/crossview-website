@@ -13,7 +13,11 @@ const merriweather = Merriweather({
   weight: ["400", "700"],
 })
 
+// Get the base URL - use environment variable or default
+const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://crossview.jaredcox.dev'
+
 export const metadata: Metadata = {
+  metadataBase: new URL(baseUrl),
   title: {
     default: "Crossview Church | A Place to Belong, Believe, and Become",
     template: "%s | Crossview Church",
@@ -28,10 +32,26 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
+    url: baseUrl,
     siteName: "Crossview Church",
     title: "Crossview Church | A Place to Belong, Believe, and Become",
     description:
       "Welcome to Crossview Church. Join us for Sunday services at 10:30 a.m. A welcoming community focused on faith, fellowship, and serving others.",
+    images: [
+      {
+        url: "/church-gathering.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Crossview Church",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Crossview Church | A Place to Belong, Believe, and Become",
+    description:
+      "Welcome to Crossview Church. Join us for Sunday services at 10:30 a.m. A welcoming community focused on faith, fellowship, and serving others.",
+    images: ["/church-gathering.jpg"],
   },
     generator: 'v0.app'
 }
