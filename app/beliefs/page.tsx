@@ -18,7 +18,7 @@ function formatScriptureLinks(scriptures: string[]) {
           href={verseUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-blue-600 hover:text-blue-800 underline"
+          className="text-[#378AA4] hover:text-[#1E3D42] underline transition-colors"
         >
           {verse}
         </Link>
@@ -30,21 +30,30 @@ function formatScriptureLinks(scriptures: string[]) {
 
 export default function BeliefsPage() {
   return (
-    <section className="py-16 md:py-20 bg-white">
+    <section className="py-12 md:py-16 bg-white">
       <div className="container mx-auto px-4 md:px-6 lg:px-8">
-        <div className="max-w-3xl mx-auto">
-          <h2 className="font-serif text-2xl md:text-3xl font-bold text-[#1E3D42] mb-4">Our Beliefs</h2>
-          <div className="h-px bg-slate-200 mb-8"></div>
-          <div className="space-y-8">
-            {beliefs.map((belief) => (
-              <div key={belief.id} className="space-y-3">
-                <h3 className="font-serif text-lg md:text-xl font-semibold text-[#1E3D42]">
+        <div className="max-w-4xl mx-auto">
+          <div className="space-y-6">
+            {beliefs.map((belief, index) => (
+              <div
+                key={belief.id}
+                className={`p-6 rounded-lg border border-slate-200/60 hover:shadow-md transition-shadow ${
+                  index % 2 === 0 ? "bg-white" : "bg-slate-50/50"
+                }`}
+              >
+                <h3 className="font-serif text-xl md:text-2xl font-semibold text-[#1E3D42] mb-3">
                   {belief.title}
                 </h3>
-                <p className="text-base text-muted-foreground leading-7">{belief.content}</p>
-                <p className="text-sm text-muted-foreground">
-                  {formatScriptureLinks(belief.scriptures)}
+                <div className="h-1 w-16 bg-[#F1802C] mb-4"></div>
+                <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-4">
+                  {belief.content}
                 </p>
+                <div className="pt-3 border-t border-slate-200/60">
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    <span className="font-medium text-[#1E3D42]">Scripture References: </span>
+                    {formatScriptureLinks(belief.scriptures)}
+                  </p>
+                </div>
               </div>
             ))}
           </div>
