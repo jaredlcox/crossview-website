@@ -34,17 +34,9 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: baseUrl,
     siteName: "Crossview Church",
-    title: "Crossview Church | A Place to Belong, Believe, and Become",
+    title: "Crossview Churche",
     description:
       "Welcome to Crossview Church. Join us for Sunday services at 10:30 a.m. A welcoming community focused on faith, fellowship, and serving others.",
-    images: [
-      {
-        url: "/church-gathering.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Crossview Church",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
