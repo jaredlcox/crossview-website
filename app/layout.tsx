@@ -34,16 +34,24 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: baseUrl,
     siteName: "Crossview Church",
-    title: "Crossview Churche",
-    description:
-      "Welcome to Crossview Church. Join us for Sunday services at 10:30 a.m. A welcoming community focused on faith, fellowship, and serving others.",
-  },
-  twitter: {
-    card: "summary_large_image",
     title: "Crossview Church | A Place to Belong, Believe, and Become",
     description:
       "Welcome to Crossview Church. Join us for Sunday services at 10:30 a.m. A welcoming community focused on faith, fellowship, and serving others.",
-    images: ["/church-gathering.jpg"],
+    images: [
+      {
+        url: "/crossview-logo.png",
+        width: 1200,
+        height: 1200,
+        alt: "Crossview Church Logo",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary",
+    title: "Crossview Church | A Place to Belong, Believe, and Become",
+    description:
+      "Welcome to Crossview Church. Join us for Sunday services at 10:30 a.m. A welcoming community focused on faith, fellowship, and serving others.",
+    images: ["/crossview-logo.png"],
   },
     generator: 'v0.app'
 }
