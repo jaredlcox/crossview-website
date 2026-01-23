@@ -28,7 +28,7 @@ export function SiteHeader() {
 
   return (
     <header className="sticky top-0 z-50 w-full bg-white border-b border-slate-200/60">
-      <div className="container mx-auto flex h-16 items-center justify-between px-4">
+      <div className="w-full flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2" aria-label="Crossview Church Home">
           <Image
@@ -43,7 +43,7 @@ export function SiteHeader() {
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-1" aria-label="Main navigation">
+        <nav className="hidden md:flex items-center gap-2 lg:gap-4" aria-label="Main navigation">
           {navigation.map((item) => {
             const isActive = pathname === item.href || (item.children && item.children.some((child) => pathname === child.href))
             

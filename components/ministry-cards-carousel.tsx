@@ -34,7 +34,7 @@ export function MinistryCardsCarousel({ ministries, interval = 5000, className }
 
   return (
     <div
-      className={cn("relative overflow-hidden rounded-lg shadow-lg bg-gradient-to-br from-slate-50 via-blue-50/50 to-teal-50/60", className)}
+      className={cn("relative overflow-hidden rounded-lg shadow-lg bg-linear-to-br from-slate-50 via-blue-50/50 to-teal-50/60", className)}
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
       role="region"
@@ -42,7 +42,7 @@ export function MinistryCardsCarousel({ ministries, interval = 5000, className }
       aria-label="Ministry cards carousel"
     >
       {/* <div className="relative aspect-3/2 w-full"> */}
-      <div className="relative aspect-3/2 sm:aspect-square md:aspect-video lg:aspect-4/3 w-full">
+      <div className="relative aspect-square xs:aspect-13/9 sm:aspect-15/9 md:aspect-17/9 lg:aspect-4/3 w-full">
         {ministries.map((ministry, index) => (
           <div
             key={ministry.id}

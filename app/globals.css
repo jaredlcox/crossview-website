@@ -46,6 +46,7 @@
 }
 
 @theme inline {
+  --breakpoint-xs: 30rem; /* 480px - below sm (40rem/640px) */
   --font-sans: "Inter", "Inter Fallback", system-ui, sans-serif;
   --font-serif: "Merriweather", "Merriweather Fallback", Georgia, serif;
   --font-mono: "Geist Mono", "Geist Mono Fallback";
