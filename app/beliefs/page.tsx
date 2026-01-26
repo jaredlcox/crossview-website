@@ -28,6 +28,34 @@ function formatScriptureLinks(scriptures: string[]) {
   })
 }
 
+// Helper function to parse content and convert Bible verse references to links
+function formatContentWithVerseLinks(content: string) {
+  // Pattern to match Bible verse references like "1 Timothy 3:1–13" or "Acts 6:3-4"
+  const versePattern = /(\d?\s?[A-Z][a-z]+\s\d+:\d+[–-]?\d*)/g
+  
+  const parts = content.split(versePattern)
+  
+  return parts.map((part, index) => {
+    if (versePattern.test(part)) {
+      // Reset the regex lastIndex since we're using it again
+      versePattern.lastIndex = 0
+      const verseUrl = `https://www.biblegateway.com/passage/?search=${encodeURIComponent(part)}&version=KJV`
+      return (
+        <Link
+          key={index}
+          href={verseUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-[#378AA4] hover:text-[#1E3D42] underline transition-colors"
+        >
+          {part}
+        </Link>
+      )
+    }
+    return part
+  })
+}
+
 export default function BeliefsPage() {
   return (
     <>
@@ -54,7 +82,7 @@ export default function BeliefsPage() {
                   {belief.title}
                 </h2>
                 <p className="text-base text-muted-foreground leading-relaxed mb-4">
-                  {belief.content}
+                  {formatContentWithVerseLinks(belief.content)}
                 </p>
                 <div className="pt-3 border-t border-slate-200/60">
                   <p className="text-sm text-muted-foreground leading-relaxed">

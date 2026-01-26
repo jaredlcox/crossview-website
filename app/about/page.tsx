@@ -4,7 +4,7 @@ import Image from "next/image"
 export const metadata: Metadata = {
   title: "About Us",
   description:
-    "Learn about Crossview Church - our vision, values, and leadership. Discover what makes our community special.",
+    "Learn about Crossview Church - our vision, values, and pastor.",
 }
 
 const goals = [
@@ -63,7 +63,7 @@ export default function AboutPage() {
             <h1 className="font-serif text-3xl md:text-4xl font-bold text-[#1E3D42] mb-3">About Us</h1>
             <div className="h-1 w-16 bg-[#F1802C] mx-auto mb-4"></div>
             <p className="text-base text-muted-foreground leading-7">
-              Learn about Crossview Church - our vision, values, and leadership. Discover what makes our community special.
+              Learn about Crossview Church - our vision, values, and pastor.
             </p>
           </div>
         </div>
@@ -76,16 +76,19 @@ export default function AboutPage() {
             <div>
               <h2 className="font-serif text-2xl md:text-3xl font-bold text-[#1E3D42] mb-3">Who We Are</h2>
               <p className="text-base text-muted-foreground leading-relaxed">
-                We invite you to experience God's love, grace, and truth in a caring church family. Crossview is an
-                independent, Bible-based church where God's Word is taught clearly and Jesus Christ is at the center of
-                all we do. If you're seeking to grow closer to God and understand the Bible, we would love to help.
+                Crossview is an independent, Bible-based church rooted in the truth of God's Word and centered on
+                Jesus Christ. We are a fellowship of believers committed to worship, spiritual growth, and living out
+                our faith in everyday life. Through clear teaching of the Bible and genuine relationships, we seek to
+                know God more deeply and reflect His love, grace, and truth to one another and to our community.
               </p>
             </div>
             <div id="vision">
               <h2 className="font-serif text-2xl md:text-3xl font-bold text-[#1E3D42] mb-3">Our Vision</h2>
               <p className="text-base text-muted-foreground leading-relaxed">
-                Our name reflects our vision, which is to keep the cross of Christ at the center of our lives, our
-                church, and our mission to the world.
+                Our name reflects our vision—to keep the cross of Christ in view everywhere we go and in
+                everything we say and do. By remaining centered on Christ's sacrifice, grace, and truth, we seek to
+                glorify God, grow as disciples, and faithfully share the hope of the gospel with our community and
+                beyond.
               </p>
             </div>
           </div>
@@ -96,7 +99,7 @@ export default function AboutPage() {
       <section className="py-12 md:py-16 bg-slate-50/50">
         <div className="container mx-auto px-4 md:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
-            <h2 className="font-serif text-2xl md:text-3xl font-bold text-[#1E3D42] mb-4">Our Goal</h2>
+            <h2 className="font-serif text-2xl md:text-3xl font-bold text-[#1E3D42] mb-4">Our Goal Is For All To Be</h2>
             <ul className="grid sm:grid-cols-2 gap-4 md:gap-6">
               {goals.map((goal) => (
                 <li key={goal.title} className="p-4 rounded-lg bg-white border border-slate-200/60 hover:shadow-md transition-shadow">
@@ -130,20 +133,19 @@ export default function AboutPage() {
       <section id="leadership" className="py-12 md:py-16 bg-slate-50/50">
         <div className="container mx-auto px-4 md:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
-            <h2 className="font-serif text-2xl md:text-3xl font-bold text-[#1E3D42] mb-4">Leadership</h2>
+            <h2 className="font-serif text-2xl md:text-3xl font-bold text-[#1E3D42] mb-4">Pastor Matt Bernsdorff</h2>
             <div className="grid md:grid-cols-2 gap-6 md:gap-8 items-start">
               <div className="relative aspect-[4/3] rounded-lg overflow-hidden bg-slate-100 shadow-lg">
                 <Image
                   src="/matt-and-vickie.png"
-                  alt="Matt and Vickie Bernsdorf"
+                  alt="Matt and Vickie Bernsdorff"
                   fill
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
               </div>
               <div>
-                <h3 className="font-serif text-2xl font-semibold text-[#1E3D42] mb-2">Matt and Vickie Bernsdorf</h3>
-                <p className="text-base text-[#378AA4] font-medium mb-4">Pastoral Leadership</p>
+                <h3 className="font-serif text-2xl font-semibold text-[#1E3D42] mb-4">Matt and Vickie Bernsdorff</h3>
                 <div className="space-y-3 text-sm text-muted-foreground leading-relaxed">
                   <p>
                     In 2023, Matt and Vickie opened their home for a small Bible study that grew into what is now

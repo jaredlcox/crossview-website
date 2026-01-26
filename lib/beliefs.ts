@@ -118,7 +118,7 @@ export const beliefs: Doctrine[] = [
     title: "Local Church",
     summary: "Independent, autonomous assemblies with divine structure.",
     content:
-      "We believe that Christians are to assemble locally in order to hear the word of God preached and taught and to serve the Lord together. The local church has a divine structure laid out especially in the Pastoral Epistles of the apostle Paul. We believe in the independence and autonomy of the local church: that each church is free to govern itself without ecclesiastical interference. The two offices of Bishop (Pastor) and Deacon are only for spiritually mature men (elders) who meet the standards of scripture. Baptism and the Lord's Supper are administered as symbols of the gospel and can in no way impart salvation nor are needed for salvation",
+      "We believe that Christians are to assemble locally in order to hear the word of God preached and taught and to serve the Lord together. The local church has a divine structure laid out especially in the Pastoral Epistles of the apostle Paul. We believe in the independence and autonomy of the local church: that each church is free to govern itself without ecclesiastical interference. The two offices of Pastor and Deacon are reserved for those who meet the biblical qualifications outlined in 1 Timothy 3:1–13, Titus 1:5–9, and Acts 6:3–4. Baptism and the Lord's Supper are administered as symbols of the gospel and can in no way impart salvation nor are needed for salvation",
     scriptures: [
       "Philippians 1:1",
       "Titus 1:5",
@@ -135,7 +135,7 @@ export const beliefs: Doctrine[] = [
     title: "Believer's Walk",
     summary: "Living by grace, not law, with practical sanctification.",
     content:
-      "We believe that the Body of Christ is not under the Law but Grace. This means that the core operating principle in the believer's relationship with God and others is grace. By reason of Christ's victory over sin and by His indwelling Spirit, all saved people should experience deliverance from the power of sin in their daily lives. All believers still possess the old man (the flesh) and therefore the ability to sin. We do not believe that the sin nature is eradicated in this life. We believe in the practical sanctification of all members of the Body of Christ and that all believers should glorify God in all of their thoughts, words, and deeds. Believers should separate from all forms of worldliness, humanism, and religious apostasy.",
+      "We believe that the Body of Christ is not under the Law but Grace. This means that the core operating principle in the believer's relationship with God and others is grace. By reason of Christ's victory over sin and by His indwelling Spirit, all saved people should experience deliverance from the power of sin in their daily lives. All believers still possess the old man (the flesh) and therefore the ability to sin. We do not believe that the sin nature is eradicated in this life. We believe in the practical sanctification of all members of the Body of Christ and that all believers should glorify God in all of their thoughts, words, and deeds.",
     scriptures: [
       "Romans 6:14",
       "Galatians 5:15-26",
