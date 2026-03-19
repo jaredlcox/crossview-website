@@ -76,11 +76,11 @@ export function SiteFooter() {
               </li>
               <li>
                 <a
-                  href="https://www.facebook.com/groups/1231739738417968"
+                  href="https://www.facebook.com/profile.php?id=61585343770334"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 text-sm text-white/80 hover:text-[#378AA4] transition-colors"
-                  aria-label="Visit our Facebook group"
+                  aria-label="Visit our Facebook page"
                 >
                   <Facebook className="h-4 w-4 text-[#378AA4] shrink-0" aria-hidden="true" />
                   Facebook

@@ -39,10 +39,10 @@ export const events: Event[] = [
   {
     id: "3",
     title: "Ladies Brunch & Bible",
-    date: "Once a Month",
-    time: "11:00 a.m.–12:30 p.m.",
+    date: "3rd Saturday of Every Month",
+    time: "9:30–11:00 a.m.",
     description:
-      "A monthly gathering for women to connect over brunch and study Scripture. Nursery and child care provided.",
+      "A monthly gathering for women to connect over brunch and study Scripture at the church. No nursery provided.",
   },
   {
     id: "4",

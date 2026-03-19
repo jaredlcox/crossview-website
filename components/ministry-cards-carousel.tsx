@@ -57,12 +57,12 @@ export function MinistryCardsCarousel({ ministries, interval = 5000, className }
           >
             <div className="h-full flex flex-col justify-between">
               {/* Image */}
-              <div className="relative h-48 md:h-56 rounded-lg overflow-hidden mb-4 bg-slate-100">
+              <div className="relative h-48 md:h-64 rounded-lg overflow-hidden mb-4 bg-slate-100">
                 <Image
                   src={ministry.image}
                   alt={ministry.title}
                   fill
-                  className=""
+                  className="object-cover"
                   priority={index === 0}
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />

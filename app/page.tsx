@@ -140,8 +140,8 @@ export default function HomePage() {
             <div className="order-2 lg:order-1">
               <div className="relative aspect-[4/3] rounded-lg overflow-hidden shadow-lg bg-slate-100">
                 <Image
-                  src="/church-gathering.jpg"
-                  alt="Crossview Church gathering"
+                  src="/matt-preaching.jpeg"
+                  alt="Pastor Matt preaching at Crossview Church"
                   fill
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, 50vw"

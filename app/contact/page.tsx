@@ -91,12 +91,12 @@ export default function ContactPage() {
                   <div>
                     <p className="font-medium text-[#1E3D42] text-sm mb-1">Facebook</p>
                     <a
-                      href="https://www.facebook.com/groups/1231739738417968"
+                      href="https://www.facebook.com/profile.php?id=61585343770334"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-sm text-muted-foreground hover:text-[#378AA4] transition-colors"
                     >
-                      Join Our Group
+                      Follow Us on Facebook
                     </a>
                   </div>
                 </div>

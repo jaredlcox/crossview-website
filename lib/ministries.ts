@@ -24,7 +24,7 @@ export const ministries: Ministry[] = [
     id: "crossview-kids",
     title: "Crossview Kids",
     description: "Partnering with parents to help kids grow closer to God.",
-    image: "/kids_ministry.jpg",
+    image: "/kids-ministry.jpg",
     details:
       "We partner with parents to help kids grow in faith. Safe, age-appropriate environments for preschool through third grade. Nursery care available during our 10:30 a.m. Sunday service.",
   },
@@ -70,8 +70,8 @@ export const ministries: Ministry[] = [
     description: "Monthly gathering for women to connect over brunch and Scripture.",
     image: "/brunch-bible.png",
     details:
-      "Once a month, women gather from 11:00 a.m.–12:30 p.m. for brunch, fellowship, and Bible study. Nursery and child care provided.",
-    schedule: "Monthly, 11:00 a.m.–12:30 p.m.",
+      "Women gather on the third Saturday of every month from 9:30–11:00 a.m. at the church for brunch, fellowship, and Bible study. No nursery provided.",
+    schedule: "3rd Saturday of every month, 9:30–11:00 a.m.",
   },
   {
     id: "outreach",
