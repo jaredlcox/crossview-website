@@ -110,7 +110,7 @@ export const beliefs: Doctrine[] = [
     title: "Body of Christ",
     summary: "All believers baptized into one Body by the Holy Spirit.",
     content:
-      "We believe that in this present age, the Holy Spirit baptizes every believer into the Body of Christ upon salvation. We believe that the church which is the Body of Christ was a great mystery that was hid from past ages until revealed by Christ through the apostle Paul. There is only one Body of which Christ is the Head. In the Body of Christ, there is neither Jew nor Gentile. We, therefore, reject the false teaching that the Body of Christ has replaced the nation of Israel in the purposes of God.",
+      "We believe that in this present age, the Holy Spirit baptizes every believer into the Body of Christ upon salvation. We believe that the church which is the Body of Christ was a great mystery that was hid from past ages until revealed by Christ through the apostle Paul. There is only one Body of which Christ is the Head. In the Body of Christ, there is neither Jew nor Gentile.",
     scriptures: ["1 Corinthians 12:13", "Galatians 3:26-28", "Ephesians 1:22-23", "Ephesians 3:1-12", "Ephesians 4:4", "Romans 11"],
   },
   {
