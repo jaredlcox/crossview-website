@@ -1,15 +1,1 @@
-{
-  "redirects": [
-    {
-      "source": "/(.*)",
-      "missing": [
-        {
-          "type": "host",
-          "value": "crossview\\.jaredcox\\.dev"
-        }
-      ],
-      "destination": "https://www.google.com",
-      "permanent": false
-    }
-  ]
-}
+{}
