@@ -2,10 +2,10 @@
 
 import { ContactBlock } from "@/components/contact-block"
 import { ministries } from "@/lib/ministries"
-import Image from "next/image"
 import { Phone } from "lucide-react"
 import { useState } from "react"
 import { cn } from "@/lib/utils"
+import { MinistryImage } from "@/components/ministry-image"
 
 // Filter to only the 4 ministries specified in requirements
 const featuredMinistries = ministries.filter(
@@ -65,12 +65,11 @@ export default function MinistriesPage() {
                   >
                     {/* Background Image */}
                     <div className="absolute inset-0">
-                      <Image
-                        src={ministry.image}
+                      <MinistryImage
+                        ministry={ministry}
                         alt={ministry.title}
-                        fill
                         className={cn(
-                          "transition-all duration-300 group-hover:scale-105",
+                          "absolute inset-0 h-full w-full object-cover transition-all duration-300 group-hover:scale-105",
                           isExpanded ? "blur-md md:blur-lg" : "blur-0"
                         )}
                         sizes="(max-width: 768px) 100vw, 50vw"

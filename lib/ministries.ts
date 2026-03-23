@@ -3,6 +3,11 @@ export interface Ministry {
   title: string
   description: string
   image: string
+  responsiveImages?: {
+    mobile?: string
+    tablet?: string
+    desktop?: string
+  }
   details: string
   schedule?: string
   contact?: string
@@ -24,7 +29,12 @@ export const ministries: Ministry[] = [
     id: "crossview-kids",
     title: "Crossview Kids",
     description: "Partnering with parents to help kids grow closer to God.",
-    image: "/kids-ministry.jpg",
+    image: "/kids-ministry.jpeg",
+    responsiveImages: {
+      mobile: "/kids-ministry-tablet.jpg",
+      tablet: "/kids-ministry-tablet.jpg",
+      desktop: "/kids-ministry-tablet.jpg",
+    },
     details:
       "We partner with parents to help kids grow in faith. Safe, age-appropriate environments for preschool through third grade. Nursery care available during our 10:30 a.m. Sunday service.",
   },

@@ -1,9 +1,9 @@
 "use client"
 
 import { useState, useEffect, useCallback } from "react"
-import Image from "next/image"
 import { cn } from "@/lib/utils"
 import type { Ministry } from "@/lib/ministries"
+import { MinistryImage } from "@/components/ministry-image"
 
 interface MinistryCardsCarouselProps {
   ministries: Ministry[]
@@ -58,11 +58,10 @@ export function MinistryCardsCarousel({ ministries, interval = 5000, className }
             <div className="h-full flex flex-col justify-between">
               {/* Image */}
               <div className="relative h-48 md:h-64 rounded-lg overflow-hidden mb-4 bg-slate-100">
-                <Image
-                  src={ministry.image}
+                <MinistryImage
+                  ministry={ministry}
                   alt={ministry.title}
-                  fill
-                  className="object-cover"
+                  className="absolute inset-0 h-full w-full object-fill"
                   priority={index === 0}
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
