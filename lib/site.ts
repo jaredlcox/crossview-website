@@ -8,7 +8,7 @@ export const siteConfig = {
     zip: "43560",
   },
   phone: "(419) 280-7495",
-  email: "info@crossviewchurch.org",
+  email: "info@crossviewchurch.church",
   serviceTimes: [
     {
       day: "Sunday",

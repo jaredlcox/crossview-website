@@ -7,11 +7,14 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
-import { CheckCircle2 } from "lucide-react"
+import { CheckCircle2, AlertCircle } from "lucide-react"
+
+const FORMSUBMIT_URL = "https://formsubmit.co/ajax/info@crossviewchurch.church"
 
 export function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSuccess, setIsSuccess] = useState(false)
+  const [submitError, setSubmitError] = useState<string | null>(null)
   const [errors, setErrors] = useState<Record<string, string>>({})
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -23,7 +26,6 @@ export function ContactForm() {
     const email = formData.get("email") as string
     const message = formData.get("message") as string
 
-    // Validation
     const newErrors: Record<string, string> = {}
     if (!name.trim()) newErrors.name = "Name is required"
     if (!email.trim()) newErrors.email = "Email is required"
@@ -36,14 +38,33 @@ export function ContactForm() {
     }
 
     setErrors({})
+    setSubmitError(null)
     setIsSubmitting(true)
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1000))
+    try {
+      const body = new FormData()
+      body.append("name", name)
+      body.append("email", email)
+      body.append("message", message)
+      body.append("_subject", "New Contact Form Submission — Crossview Church")
+      body.append("_template", "table")
+      body.append("_honeypot", formData.get("_honeypot") as string ?? "")
 
-    setIsSubmitting(false)
-    setIsSuccess(true)
-    form.reset()
+      const res = await fetch(FORMSUBMIT_URL, {
+        method: "POST",
+        headers: { Accept: "application/json" },
+        body,
+      })
+
+      if (!res.ok) throw new Error("Submission failed")
+
+      setIsSuccess(true)
+      form.reset()
+    } catch {
+      setSubmitError("Something went wrong. Please try again or email us directly.")
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   if (isSuccess) {
@@ -68,6 +89,9 @@ export function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
+      {/* Honeypot field — hidden from real users, catches bots */}
+      <input type="text" name="_honeypot" className="hidden" tabIndex={-1} autoComplete="off" />
+
       <div className="space-y-2">
         <Label htmlFor="name">Name</Label>
         <Input id="name" name="name" placeholder="Your name" className={errors.name ? "border-destructive" : ""} />
@@ -97,6 +121,13 @@ export function ContactForm() {
         />
         {errors.message && <p className="text-sm text-destructive">{errors.message}</p>}
       </div>
+
+      {submitError && (
+        <div className="flex items-center gap-2 text-sm text-destructive">
+          <AlertCircle className="h-4 w-4 shrink-0" />
+          <p>{submitError}</p>
+        </div>
+      )}
 
       <Button
         type="submit"

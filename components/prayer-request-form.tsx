@@ -7,22 +7,50 @@ import { Button } from "@/components/ui/button"
 import { Textarea } from "@/components/ui/textarea"
 import { Checkbox } from "@/components/ui/checkbox"
 import { Label } from "@/components/ui/label"
-import { Heart } from "lucide-react"
+import { Heart, AlertCircle } from "lucide-react"
+
+const FORMSUBMIT_URL = "https://formsubmit.co/ajax/info@crossviewchurch.church"
 
 export function PrayerRequestForm() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSuccess, setIsSuccess] = useState(false)
+  const [submitError, setSubmitError] = useState<string | null>(null)
+  const [isAnonymous, setIsAnonymous] = useState(false)
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
+    setSubmitError(null)
     setIsSubmitting(true)
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1000))
+    const form = e.currentTarget
+    const formData = new FormData(form)
 
-    setIsSubmitting(false)
-    setIsSuccess(true)
-    e.currentTarget.reset()
+    const prayer = formData.get("prayer") as string
+
+    try {
+      const body = new FormData()
+      body.append("prayer_request", prayer)
+      body.append("anonymous", isAnonymous ? "Yes" : "No")
+      body.append("_subject", "New Prayer Request — Crossview Church")
+      body.append("_template", "table")
+      body.append("_honeypot", formData.get("_honeypot") as string ?? "")
+
+      const res = await fetch(FORMSUBMIT_URL, {
+        method: "POST",
+        headers: { Accept: "application/json" },
+        body,
+      })
+
+      if (!res.ok) throw new Error("Submission failed")
+
+      setIsSuccess(true)
+      setIsAnonymous(false)
+      form.reset()
+    } catch {
+      setSubmitError("Something went wrong. Please try again.")
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   if (isSuccess) {
@@ -42,17 +70,30 @@ export function PrayerRequestForm() {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-3">
+      <input type="text" name="_honeypot" className="hidden" tabIndex={-1} autoComplete="off" />
+
       <div className="space-y-2">
         <Label htmlFor="prayer">Your Prayer Request</Label>
         <Textarea id="prayer" name="prayer" placeholder="Share your prayer request..." rows={4} required />
       </div>
 
       <div className="flex items-center space-x-2">
-        <Checkbox id="anonymous" name="anonymous" />
+        <Checkbox
+          id="anonymous"
+          checked={isAnonymous}
+          onCheckedChange={(checked) => setIsAnonymous(checked === true)}
+        />
         <Label htmlFor="anonymous" className="text-sm text-muted-foreground">
           Keep my request anonymous
         </Label>
       </div>
+
+      {submitError && (
+        <div className="flex items-center gap-2 text-sm text-destructive">
+          <AlertCircle className="h-4 w-4 shrink-0" />
+          <p>{submitError}</p>
+        </div>
+      )}
 
       <Button
         type="submit"
