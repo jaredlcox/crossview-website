@@ -61,6 +61,7 @@ export default function HomePage() {
               >
                 <Link href="/about">Get to Know Us</Link>
               </Button>
+              {/*
               <Button
                 asChild
                 size="lg"
@@ -68,6 +69,7 @@ export default function HomePage() {
               >
                 <Link href="/ministries">Ministries</Link>
               </Button>
+              */}
             </div>
           </div>
         </div>
