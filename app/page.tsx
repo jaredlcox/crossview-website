@@ -15,20 +15,41 @@ export default function HomePage() {
   return (
     <>
       {/* Hero Section - BridgePoint Style */}
-      <section className="relative py-20 md:py-32 min-h-[500px] md:min-h-[600px] flex items-center bg-gradient-to-br from-[#378AA4] via-[#2a6b7f] to-[#1E3D42]">
+      <section className="relative py-20 md:py-32 min-h-[500px] md:min-h-[600px] flex items-center overflow-hidden bg-[#1E3D42]">
+        {/* Hero video background */}
+        <video
+          className="absolute inset-0 h-full w-full object-cover"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          poster="/hero-poster.jpg"
+          aria-hidden="true"
+        >
+          <source src="/hero-video.webm" type="video/webm" />
+          <source src="/hero-video.mp4" type="video/mp4" />
+        </video>
+
+        {/* Readability overlay for hero text/buttons */}
+        <div className="absolute inset-0 bg-linear-to-br from-[#1E3D42]/75 via-[#1E3D42]/55 to-[#1E3D42]/80" />
+
         {/* Subtle cross pattern overlay */}
-        <div className="absolute inset-0 opacity-[0.08]" style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23ffffff' stroke-width='1.5' stroke-opacity='0.4'%3E%3Cpath d='M40 20 L40 60 M20 40 L60 40'/%3E%3C/g%3E%3C/svg%3E")`,
-        }}></div>
+        <div
+          className="absolute inset-0 opacity-[0.07]"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23ffffff' stroke-width='1.5' stroke-opacity='0.4'%3E%3Cpath d='M40 20 L40 60 M20 40 L60 40'/%3E%3C/g%3E%3C/svg%3E")`,
+          }}
+        ></div>
         
         {/* Content */}
         <div className="container mx-auto px-4 md:px-6 lg:px-8 relative z-10">
           <div className="max-w-3xl mx-auto text-center space-y-6">
             <p className="text-sm font-medium text-[#F1802C] uppercase tracking-wide">Welcome to</p>
-            <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight">
+            <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight drop-shadow-sm">
               Crossview Church
             </h1>
-            <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto">
+            <p className="text-lg md:text-xl text-white max-w-2xl mx-auto drop-shadow-sm">
               Christ… Connection… Community
             </p>
             {/* Call-to-Action Buttons */}
@@ -138,7 +159,7 @@ export default function HomePage() {
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center max-w-6xl mx-auto">
             {/* Left Column - Image */}
             <div className="order-2 lg:order-1">
-              <div className="relative aspect-[4/3] rounded-lg overflow-hidden shadow-lg bg-slate-100">
+              <div className="relative aspect-4/3 rounded-lg overflow-hidden shadow-lg bg-slate-100">
                 <Image
                   src="/matt-preaching.jpeg"
                   alt="Pastor Matt preaching at Crossview Church"
