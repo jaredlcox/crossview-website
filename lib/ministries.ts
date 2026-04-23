@@ -42,7 +42,7 @@ export const ministries: Ministry[] = [
   },
   {
     id: "dooleys-medical-missions",
-    title: "Medical Missions: The Dooleys",
+    title: "Medical Missions",
     description: "Serving communities with compassionate medical care, prayer, and Gospel outreach.",
     image: "/dooleys-medical-missions.jpg",
     details:
