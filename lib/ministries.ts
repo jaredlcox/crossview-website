@@ -43,7 +43,7 @@ export const ministries: Ministry[] = [
   {
     id: "dooleys-medical-missions",
     title: "Medical Missions: The Dooleys",
-    description: "Sharing Christ through compassionate medical care in underserved communities.",
+    description: "Serving communities with compassionate medical care, prayer, and Gospel outreach.",
     image: "/dooleys-medical-missions.jpg",
     details:
       "Zack and Mariah Dooley partner with Medical Missions Outreach to serve communities through ethical medical care, prayer, and Gospel-centered outreach in partnership with local churches.",
