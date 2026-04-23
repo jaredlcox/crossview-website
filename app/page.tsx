@@ -107,6 +107,7 @@ export default function HomePage() {
                 ministries={ministries.filter(
                   (m) =>
                     m.id === "crossview-kids" ||
+                    m.id === "dooleys-medical-missions" ||
                     m.id === "griefshare" ||
                     m.id === "mens-bible-study" ||
                     m.id === "ladies-brunch"

@@ -11,6 +11,7 @@ import { MinistryImage } from "@/components/ministry-image"
 const featuredMinistries = ministries.filter(
   (m) =>
     m.id === "crossview-kids" ||
+    m.id === "dooleys-medical-missions" ||
     m.id === "griefshare" ||
     m.id === "mens-bible-study" ||
     m.id === "ladies-brunch"
@@ -18,6 +19,7 @@ const featuredMinistries = ministries.filter(
 
 export default function MinistriesPage() {
   const [expandedId, setExpandedId] = useState<string | null>(null)
+  const fillImageIds = new Set(["griefshare", "mens-bible-study", "ladies-brunch"])
 
   const handleCardInteraction = (ministryId: string) => {
     setExpandedId(expandedId === ministryId ? null : ministryId)
@@ -69,7 +71,8 @@ export default function MinistriesPage() {
                         ministry={ministry}
                         alt={ministry.title}
                         className={cn(
-                          "absolute inset-0 h-full w-full object-cover transition-all duration-300 group-hover:scale-105",
+                          "absolute inset-0 h-full w-full transition-all duration-300 group-hover:scale-105",
+                          fillImageIds.has(ministry.id) ? "object-fill" : "object-cover",
                           isExpanded ? "blur-md md:blur-lg" : "blur-0"
                         )}
                         sizes="(max-width: 768px) 100vw, 50vw"
@@ -81,7 +84,7 @@ export default function MinistriesPage() {
                     {/* Content Overlay */}
                     <div className="absolute inset-0 flex flex-col justify-end p-4 md:p-6">
                       {/* Title - Always Visible */}
-                      <h2 className="font-serif text-xl md:text-2xl font-bold text-white mb-2 transition-all duration-300">
+                      <h2 className="font-serif text-xl md:text-2xl font-bold text-white mb-1 transition-all duration-300">
                         {ministry.title}
                       </h2>
 
@@ -93,8 +96,8 @@ export default function MinistriesPage() {
                             : "max-h-0 opacity-0"
                         }`}
                       >
-                        <div className="pt-3 md:pt-4 space-y-2 md:space-y-3">
-                          <p className="text-xs md:text-sm text-white/90 leading-5 md:leading-6">
+                        <div className="pt-2 md:pt-2 space-y-2 md:space-y-2">
+                          <p className="text-xs md:text-xs lg:text-sm text-white/90 leading-5 md:leading-5 lg:leading-6 line-clamp-5 md:line-clamp-4 lg:line-clamp-none">
                             {ministry.details}
                           </p>
 
@@ -103,8 +106,21 @@ export default function MinistriesPage() {
                               {ministry.schedule}
                             </p>
                           )}
+                          {ministry.websiteUrl && (
+                            <p>
+                              <a
+                                href={ministry.websiteUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                onClick={(e) => e.stopPropagation()}
+                                className="text-xs md:text-sm text-[#F1802C] font-medium underline underline-offset-2 hover:text-white transition-colors break-all"
+                              >
+                                {ministry.websiteLabel ?? ministry.websiteUrl}
+                              </a>
+                            </p>
+                          )}
 
-                          {(ministry.id === "griefshare" || ministry.id === "mens-bible-study") && (
+                          {ministry.id === "griefshare" && (
                             <div className="pt-2 border-t border-white/20">
                               <p className="text-xs text-white/80 mb-1">Contact Pastor Matt</p>
                               <a

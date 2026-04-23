@@ -14,9 +14,18 @@ interface MinistryCardsCarouselProps {
 export function MinistryCardsCarousel({ ministries, interval = 5000, className }: MinistryCardsCarouselProps) {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [isPaused, setIsPaused] = useState(false)
+  const fillImageIds = new Set(["crossview-kids", "griefshare", "mens-bible-study", "ladies-brunch"])
+  const [touchStartX, setTouchStartX] = useState<number | null>(null)
+  const [touchEndX, setTouchEndX] = useState<number | null>(null)
+
+  const minSwipeDistance = 50
 
   const goToNext = useCallback(() => {
     setCurrentIndex((prev) => (prev + 1) % ministries.length)
+  }, [ministries.length])
+
+  const goToPrev = useCallback(() => {
+    setCurrentIndex((prev) => (prev - 1 + ministries.length) % ministries.length)
   }, [ministries.length])
 
   useEffect(() => {
@@ -30,13 +39,35 @@ export function MinistryCardsCarousel({ ministries, interval = 5000, className }
     setCurrentIndex(index)
   }
 
+  const onTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
+    setTouchEndX(null)
+    setTouchStartX(e.targetTouches[0].clientX)
+  }
+
+  const onTouchMove = (e: React.TouchEvent<HTMLDivElement>) => {
+    setTouchEndX(e.targetTouches[0].clientX)
+  }
+
+  const onTouchEnd = () => {
+    if (touchStartX === null || touchEndX === null) return
+    const distance = touchStartX - touchEndX
+    const isLeftSwipe = distance > minSwipeDistance
+    const isRightSwipe = distance < -minSwipeDistance
+
+    if (isLeftSwipe) goToNext()
+    if (isRightSwipe) goToPrev()
+  }
+
   if (!ministries || ministries.length === 0) return null
 
   return (
     <div
-      className={cn("relative overflow-hidden rounded-lg shadow-lg bg-linear-to-br from-slate-50 via-blue-50/50 to-teal-50/60", className)}
+      className={cn("relative overflow-hidden rounded-lg shadow-lg bg-slate-100", className)}
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
+      onTouchStart={onTouchStart}
+      onTouchMove={onTouchMove}
+      onTouchEnd={onTouchEnd}
       role="region"
       aria-roledescription="carousel"
       aria-label="Ministry cards carousel"
@@ -47,7 +78,7 @@ export function MinistryCardsCarousel({ ministries, interval = 5000, className }
           <div
             key={ministry.id}
             className={cn(
-              "absolute inset-0 transition-opacity duration-700 ease-in-out p-6 md:p-8",
+              "absolute inset-0 transition-opacity duration-700 ease-in-out",
               index === currentIndex ? "opacity-100 z-10" : "opacity-0 z-0",
             )}
             role="group"
@@ -55,28 +86,30 @@ export function MinistryCardsCarousel({ ministries, interval = 5000, className }
             aria-label={`${index + 1} of ${ministries.length}: ${ministry.title}`}
             aria-hidden={index !== currentIndex}
           >
-            <div className="h-full flex flex-col justify-between">
-              {/* Image */}
-              <div className="relative h-48 md:h-64 rounded-lg overflow-hidden mb-4 bg-slate-100">
+            <div className="h-full">
+              <div className="absolute inset-0">
                 <MinistryImage
                   ministry={ministry}
                   alt={ministry.title}
-                  className="absolute inset-0 h-full w-full object-fill"
+                  className={cn(
+                    "absolute inset-0 h-full w-full",
+                    fillImageIds.has(ministry.id) ? "object-fill" : "object-cover",
+                  )}
                   priority={index === 0}
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
+                <div className="absolute inset-0 bg-linear-to-t from-[#1E3D42]/92 via-[#1E3D42]/55 to-transparent" />
               </div>
 
-              {/* Content */}
-              <div className="flex-1 flex flex-col">
-                <h3 className="font-serif text-xl md:text-2xl font-bold text-[#1E3D42] mb-2">
+              <div className="absolute inset-0 z-30 pointer-events-none flex flex-col justify-end p-4 md:p-6 pb-12 md:pb-12">
+                <h3 className="font-serif text-xl md:text-2xl font-bold text-white mb-2">
                   {ministry.title}
                 </h3>
-                <p className="text-sm md:text-base text-muted-foreground leading-relaxed mb-3 line-clamp-3">
+                <p className="text-sm md:text-base text-white/90 leading-relaxed line-clamp-3">
                   {ministry.description}
                 </p>
                 {ministry.schedule && (
-                  <p className="text-xs md:text-sm text-[#378AA4] font-medium mb-2">
+                  <p className="text-xs md:text-sm text-[#F1802C] font-medium mt-2">
                     {ministry.schedule}
                   </p>
                 )}
@@ -106,6 +139,7 @@ export function MinistryCardsCarousel({ ministries, interval = 5000, className }
           ))}
         </div>
       )}
+
     </div>
   )
 }
