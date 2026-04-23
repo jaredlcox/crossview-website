@@ -19,6 +19,7 @@ const featuredMinistries = ministries.filter(
 
 export default function MinistriesPage() {
   const [expandedId, setExpandedId] = useState<string | null>(null)
+  const fillImageIds = new Set(["griefshare", "mens-bible-study", "ladies-brunch"])
 
   const handleCardInteraction = (ministryId: string) => {
     setExpandedId(expandedId === ministryId ? null : ministryId)
@@ -70,7 +71,8 @@ export default function MinistriesPage() {
                         ministry={ministry}
                         alt={ministry.title}
                         className={cn(
-                          "absolute inset-0 h-full w-full object-cover transition-all duration-300 group-hover:scale-105",
+                          "absolute inset-0 h-full w-full transition-all duration-300 group-hover:scale-105",
+                          fillImageIds.has(ministry.id) ? "object-fill" : "object-cover",
                           isExpanded ? "blur-md md:blur-lg" : "blur-0"
                         )}
                         sizes="(max-width: 768px) 100vw, 50vw"
