@@ -3,6 +3,8 @@ export interface Ministry {
   title: string
   description: string
   image: string
+  websiteUrl?: string
+  websiteLabel?: string
   responsiveImages?: {
     mobile?: string
     tablet?: string
@@ -37,6 +39,16 @@ export const ministries: Ministry[] = [
     },
     details:
       "We partner with parents to help kids grow in faith. Safe, age-appropriate environments for preschool through third grade. Nursery care available during our 10:30 a.m. Sunday service.",
+  },
+  {
+    id: "dooleys-medical-missions",
+    title: "Medical Missions: The Dooleys",
+    description: "Sharing Christ through compassionate medical care in underserved communities.",
+    image: "/dooleys-medical-missions.jpg",
+    details:
+      "Zack and Mariah Dooley partner with Medical Missions Outreach to serve communities through ethical medical care, prayer, and Gospel-centered outreach in partnership with local churches.",
+    websiteUrl: "https://medical-outreach.com/the-dooleys",
+    websiteLabel: "Visit Medical Missions Website",
   },
   {
     id: "youth",
