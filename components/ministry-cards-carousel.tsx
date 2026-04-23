@@ -14,10 +14,18 @@ interface MinistryCardsCarouselProps {
 export function MinistryCardsCarousel({ ministries, interval = 5000, className }: MinistryCardsCarouselProps) {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [isPaused, setIsPaused] = useState(false)
-  const fillImageIds = new Set(["griefshare", "mens-bible-study", "ladies-brunch"])
+  const fillImageIds = new Set(["crossview-kids", "griefshare", "mens-bible-study", "ladies-brunch"])
+  const [touchStartX, setTouchStartX] = useState<number | null>(null)
+  const [touchEndX, setTouchEndX] = useState<number | null>(null)
+
+  const minSwipeDistance = 50
 
   const goToNext = useCallback(() => {
     setCurrentIndex((prev) => (prev + 1) % ministries.length)
+  }, [ministries.length])
+
+  const goToPrev = useCallback(() => {
+    setCurrentIndex((prev) => (prev - 1 + ministries.length) % ministries.length)
   }, [ministries.length])
 
   useEffect(() => {
@@ -31,6 +39,25 @@ export function MinistryCardsCarousel({ ministries, interval = 5000, className }
     setCurrentIndex(index)
   }
 
+  const onTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
+    setTouchEndX(null)
+    setTouchStartX(e.targetTouches[0].clientX)
+  }
+
+  const onTouchMove = (e: React.TouchEvent<HTMLDivElement>) => {
+    setTouchEndX(e.targetTouches[0].clientX)
+  }
+
+  const onTouchEnd = () => {
+    if (touchStartX === null || touchEndX === null) return
+    const distance = touchStartX - touchEndX
+    const isLeftSwipe = distance > minSwipeDistance
+    const isRightSwipe = distance < -minSwipeDistance
+
+    if (isLeftSwipe) goToNext()
+    if (isRightSwipe) goToPrev()
+  }
+
   if (!ministries || ministries.length === 0) return null
 
   return (
@@ -38,6 +65,9 @@ export function MinistryCardsCarousel({ ministries, interval = 5000, className }
       className={cn("relative overflow-hidden rounded-lg shadow-lg bg-slate-100", className)}
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
+      onTouchStart={onTouchStart}
+      onTouchMove={onTouchMove}
+      onTouchEnd={onTouchEnd}
       role="region"
       aria-roledescription="carousel"
       aria-label="Ministry cards carousel"
@@ -71,7 +101,7 @@ export function MinistryCardsCarousel({ ministries, interval = 5000, className }
                 <div className="absolute inset-0 bg-linear-to-t from-[#1E3D42]/92 via-[#1E3D42]/55 to-transparent" />
               </div>
 
-              <div className="absolute inset-0 flex flex-col justify-end p-4 md:p-6 pb-12 md:pb-12">
+              <div className="absolute inset-0 z-30 pointer-events-none flex flex-col justify-end p-4 md:p-6 pb-12 md:pb-12">
                 <h3 className="font-serif text-xl md:text-2xl font-bold text-white mb-2">
                   {ministry.title}
                 </h3>
@@ -109,6 +139,7 @@ export function MinistryCardsCarousel({ ministries, interval = 5000, className }
           ))}
         </div>
       )}
+
     </div>
   )
 }
