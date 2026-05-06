@@ -10,6 +10,7 @@ export const navigation: NavItem[] = [
     label: "About",
     href: "/about",
     children: [
+      { label: "Our Story", href: "/about#our-story" },
       { label: "Our Vision", href: "/about#vision" },
       { label: "Leadership", href: "/about#leadership" },
     ],

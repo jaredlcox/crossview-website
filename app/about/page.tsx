@@ -4,7 +4,7 @@ import Image from "next/image"
 export const metadata: Metadata = {
   title: "About Us",
   description:
-    "Learn about Crossview Church - our vision, values, and pastor.",
+    "Learn about Crossview Church — our story, vision, values, and pastor. Watch how our church family began.",
 }
 
 const goals = [
@@ -65,6 +65,31 @@ export default function AboutPage() {
             <p className="text-base text-muted-foreground leading-7">
               Learn about Crossview Church - our vision, values, and pastor.
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Our Story Video */}
+      <section id="our-story" className="pt-4 md:pt-6 pb-12 md:pb-16 bg-white scroll-mt-24">
+        <div className="container mx-auto px-4 md:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="font-serif text-2xl md:text-3xl font-bold text-[#1E3D42] mb-3">Our Story</h2>
+            <p className="text-base text-muted-foreground leading-relaxed mb-6">
+              From a small Bible study in a living room to a growing church family in Sylvania—watch how God has shaped Crossview's story.
+            </p>
+            <div className="relative aspect-video w-full overflow-hidden rounded-lg shadow-lg bg-slate-900">
+              <video
+                className="absolute inset-0 h-full w-full"
+                controls
+                preload="metadata"
+                playsInline
+                poster="/our-story-poster.jpg"
+              >
+                <source src="/our-story.webm" type="video/webm" />
+                <source src="/our-story.mp4" type="video/mp4" />
+                Your browser does not support embedded video.
+              </video>
+            </div>
           </div>
         </div>
       </section>
