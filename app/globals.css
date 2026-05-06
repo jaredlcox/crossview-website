@@ -112,3 +112,27 @@ html {
   outline: 2px solid var(--brand-teal);
   outline-offset: 2px;
 }
+
+/*
+ * Anti-copy wrapper used on /internal/statement-of-faith.
+ * Discourages casual selection / copy / drag of the protected text while
+ * keeping inline links (scripture references) selectable and clickable.
+ * This is best-effort only — it does not protect against view-source,
+ * devtools, or screenshots.
+ */
+.sof-no-copy,
+.sof-no-copy * {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+}
+.sof-no-copy a,
+.sof-no-copy a * {
+  -webkit-user-select: auto;
+  -moz-user-select: auto;
+  -ms-user-select: auto;
+  user-select: auto;
+  pointer-events: auto;
+}

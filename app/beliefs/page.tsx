@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import { beliefs } from "@/lib/beliefs"
+import { bibleGatewayUrl } from "@/lib/scripture"
 import Link from "next/link"
 
 export const metadata: Metadata = {
@@ -8,14 +9,12 @@ export const metadata: Metadata = {
     "Explore the core beliefs and doctrines of Crossview Church. Learn what we believe about Scripture, God, Jesus, salvation, and more.",
 }
 
-// Helper function to create Bible verse links
 function formatScriptureLinks(scriptures: string[]) {
   return scriptures.map((verse, index) => {
-    const verseUrl = `https://www.biblegateway.com/passage/?search=${encodeURIComponent(verse)}&version=KJV`
     return (
       <span key={verse}>
         <Link
-          href={verseUrl}
+          href={bibleGatewayUrl(verse)}
           target="_blank"
           rel="noopener noreferrer"
           className="text-[#378AA4] hover:text-[#1E3D42] underline transition-colors"
@@ -28,22 +27,19 @@ function formatScriptureLinks(scriptures: string[]) {
   })
 }
 
-// Helper function to parse content and convert Bible verse references to links
 function formatContentWithVerseLinks(content: string) {
-  // Pattern to match Bible verse references like "1 Timothy 3:1–13" or "Acts 6:3-4"
+  // Match Bible verse references like "1 Timothy 3:1–13" or "Acts 6:3-4"
   const versePattern = /(\d?\s?[A-Z][a-z]+\s\d+:\d+[–-]?\d*)/g
-  
+
   const parts = content.split(versePattern)
-  
+
   return parts.map((part, index) => {
     if (versePattern.test(part)) {
-      // Reset the regex lastIndex since we're using it again
       versePattern.lastIndex = 0
-      const verseUrl = `https://www.biblegateway.com/passage/?search=${encodeURIComponent(part)}&version=KJV`
       return (
         <Link
           key={index}
-          href={verseUrl}
+          href={bibleGatewayUrl(part)}
           target="_blank"
           rel="noopener noreferrer"
           className="text-[#378AA4] hover:text-[#1E3D42] underline transition-colors"
