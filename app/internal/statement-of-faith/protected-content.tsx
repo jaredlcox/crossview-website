@@ -193,9 +193,6 @@ export function ProtectedContent() {
               Statement of Faith, Policies & Procedures
             </h1>
             <div className="h-1 w-16 bg-[#F1802C] mx-auto mb-4"></div>
-            <p className="text-base text-muted-foreground leading-7">
-              The doctrinal beliefs, church covenant, and governing bylaws of Crossview Church.
-            </p>
           </div>
         </div>
       </section>
