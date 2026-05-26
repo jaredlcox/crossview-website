@@ -174,12 +174,13 @@ export default function AboutPage() {
                 <div className="space-y-3 text-sm text-muted-foreground leading-relaxed">
                   <p>
                     In 2023, Matt and Vickie opened their home for a small Bible study that grew into what is now
-                    Crossview Church. In 2025, the church moved into its current storefront location in Sylvania.
+                    Crossview Church. In November 2025, the church moved into its current storefront location in Sylvania.
                   </p>
                   <p>
                     <strong className="text-[#1E3D42]">Pastor Matt</strong> brings 25 years of full-time ministry experience, specializing in
-                    verse-by-verse teaching and biblical counseling. He holds advanced degrees and is a Licensed
-                    Clinical Pastoral Counselor and Board Certified Mental Health Coach.
+                    verse-by-verse teaching and biblical counseling. He holds a doctorate in Theology and a Ph.D. in
+                    Christian Counseling. He is also a Licensed Clinical Pastoral Counselor and a Board-Certified
+                    mental health Coach.
                   </p>
                   <p>
                     <strong className="text-[#1E3D42]">Vickie</strong> is a registered nurse with over 20 years of pediatric experience.
